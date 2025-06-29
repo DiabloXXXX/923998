@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Boulangerie - Bakery</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Spinner Start -->
+    <div
+      id="spinner"
+      class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar start -->
+    <div
+      class="container-fluid fixed-top bg-kita d-flex align-items-center text-center justify-content-center"
+    >
+      <div class="container">
+        <nav class="navbar navbar-expand-xl">
+          <a href="menu.html" class="mx-auto">
+            <h6 class="text-center maison-du-croissant display-6">
+              Maison du Croissant
+            </h6>
+          </a>
+        </nav>
+      </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Single Page Header start -->
+    <div class="container-fluid page-header py-3">
+      <h1 class="text-center authentic display-6">Authentic French Pastries</h1>
+      <!-- Search button start -->
+      <div class="input-group kastem-woi mx-auto d-flex mb-0">
+        <form
+          action=""
+          method="GET"
+          class="input-group input-custom mx-auto d-flex"
+        >
+          <input
+            type="search"
+            name="produk"
+            class="form-control border-2 border-secondary rounded-pill text-center"
+            placeholder="Find Menu Here!"
+            aria-describedby="search-icon-1"
+          />
+          <button
+            id="search-icon-1"
+            class="btn btn-primary border border-secondary px-4 position-absolute rounded-pill text-white d-flex align-items-center justify-content-center"
+            style="bottom: 0; right: 0; height: 100%"
+          >
+            <i class="fa fa-search" type="submit"></i>
+          </button>
+        </form>
+      </div>
+      <div class="breadcrumb-container text-center mt-3 py-2">
+        <ol class="breadcrumb justify-content-center mb-0 breadcrumb-custom">
+          <li class="breadcrumb-item">
+            <a href="#" class="text-white">All Menu</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#pastry" class="text-white">Pastries</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#drinks" class="text-white">Drinks</a>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <!-- Search button End-->
+    <!-- Single Page Header End -->
+
+    <!-- Fruits Shop Start-->
+    <div class="container-fluid fruite py-2">
+      <h1 class="text-center collection display-6 mb-4" id="pastry">
+        Pastry Collection
+      </h1>
+      <div class="col-lg-12">
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <div class="rounded position-relative fruite-item">
+              <div class="fruite-img">
+                <img
+                  src="img/pastry1.jpg"
+                  class="img-fluid w-100 rounded-top"
+                  alt=""
+                />
+              </div>
+              <div
+                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                style="top: 10px; left: 10px"
+              >
+                Pastry
+              </div>
+              <div
+                class="p-4 border border-primary border-top-0 rounded-bottom"
+              >
+                <h4>Croissant</h4>
+                <p>
+                  Buttery, flaky, and crescent-shaped pastry. Made from a
+                  layered dough.
+                </p>
+                <div class="d-flex justify-content-between flex-lg-wrap">
+                  <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
+                  <a
+                    href="#"
+                    class="btn border border-secondary rounded-pill px-3 text-primary"
+                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                    cart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <div class="rounded position-relative fruite-item">
+              <div class="fruite-img">
+                <img
+                  src="img/pastry2.jpg"
+                  class="img-fluid w-100 rounded-top"
+                  alt=""
+                />
+              </div>
+              <div
+                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                style="top: 10px; left: 10px"
+              >
+                Pastry
+              </div>
+              <div
+                class="p-4 border border-primary border-top-0 rounded-bottom"
+              >
+                <h4>Pain au Chocolate</h4>
+                <p>A flaky layered pastry, filled with rich dark chocolate.</p>
+                <div class="d-flex justify-content-between flex-lg-wrap">
+                  <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
+                  <a
+                    href="#"
+                    class="btn border border-secondary rounded-pill px-3 text-primary"
+                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                    cart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <div class="rounded position-relative fruite-item">
+              <div class="fruite-img">
+                <img
+                  src="img/pastry3.jpg"
+                  class="img-fluid w-100 rounded-top"
+                  alt=""
+                />
+              </div>
+              <div
+                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                style="top: 10px; left: 10px"
+              >
+                Pastry
+              </div>
+              <div
+                class="p-4 border border-primary border-top-0 rounded-bottom"
+              >
+                <h4>Eclair</h4>
+                <p>
+                  A long, choux pastry filled with smooth vanila cream. Topped
+                  with chocolate.
+                </p>
+                <div class="d-flex justify-content-between flex-lg-wrap">
+                  <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
+                  <a
+                    href="#"
+                    class="btn border border-secondary rounded-pill px-3 text-primary"
+                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                    cart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <div class="rounded position-relative fruite-item">
+              <div class="fruite-img">
+                <img
+                  src="img/pastry5.jpg"
+                  class="img-fluid w-100 rounded-top"
+                  alt=""
+                />
+              </div>
+              <div
+                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                style="top: 10px; left: 10px"
+              >
+                Pastry
+              </div>
+              <div
+                class="p-4 border border-primary border-top-0 rounded-bottom"
+              >
+                <h4>Madeleines</h4>
+                <p>
+                  Small, shell-shaped sponge cakes with a light, buttery
+                  texture.
+                </p>
+                <div class="d-flex justify-content-between flex-lg-wrap">
+                  <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
+                  <a
+                    href="#"
+                    class="btn border border-secondary rounded-pill px-3 text-primary"
+                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                    cart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <div class="rounded position-relative fruite-item">
+              <div class="fruite-img">
+                <img
+                  src="img/pastry4.jpg"
+                  class="img-fluid w-100 rounded-top"
+                  alt=""
+                />
+              </div>
+              <div
+                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                style="top: 10px; left: 10px"
+              >
+                Pastry
+              </div>
+              <div
+                class="p-4 border border-primary border-top-0 rounded-bottom"
+              >
+                <h4>Macarons</h4>
+                <p>
+                  A delicate, meringue-based cookie with a crisp shell and chewy
+                  center.
+                </p>
+                <div class="d-flex justify-content-between flex-lg-wrap">
+                  <p class="text-dark fs-5 fw-bold mb-0">Rp 30.000</p>
+                  <a
+                    href="#"
+                    class="btn border border-secondary rounded-pill px-3 text-primary"
+                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                    cart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <div class="rounded position-relative fruite-item">
+              <div class="fruite-img">
+                <img
+                  src="img/pastry6.jpg"
+                  class="img-fluid w-100 rounded-top"
+                  alt=""
+                />
+              </div>
+              <div
+                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                style="top: 10px; left: 10px"
+              >
+                Pastry
+              </div>
+              <div
+                class="p-4 border border-primary border-top-0 rounded-bottom"
+              >
+                <h4>Canele</h4>
+                <p>
+                  A small pastry with a caramelized, crispy exterior and a soft,
+                  custardy center.
+                </p>
+                <div class="d-flex justify-content-between flex-lg-wrap">
+                  <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
+                  <a
+                    href="#"
+                    class="btn border border-secondary rounded-pill px-3 text-primary"
+                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                    cart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <div class="rounded position-relative fruite-item">
+              <div class="fruite-img">
+                <img
+                  src="img/pastry7.jpg"
+                  class="img-fluid w-100 rounded-top"
+                  alt=""
+                />
+              </div>
+              <div
+                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                style="top: 10px; left: 10px"
+              >
+                Pastry
+              </div>
+              <div
+                class="p-4 border border-primary border-top-0 rounded-bottom"
+              >
+                <h4>Chausson aux Pommes</h4>
+                <p>A puff pastry turnover filled with stewed apples.</p>
+                <div class="d-flex justify-content-between flex-lg-wrap">
+                  <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
+                  <a
+                    href="#"
+                    class="btn border border-secondary rounded-pill px-3 text-primary"
+                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                    cart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <div class="rounded position-relative fruite-item">
+              <div class="fruite-img">
+                <img
+                  src="img/pastry8.jpg"
+                  class="img-fluid w-100 rounded-top"
+                  alt=""
+                />
+              </div>
+              <div
+                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                style="top: 10px; left: 10px"
+              >
+                Pastry
+              </div>
+              <div
+                class="p-4 border border-primary border-top-0 rounded-bottom"
+              >
+                <h4>Paris-Brest</h4>
+                <p>A ring-shaped choux pastry filled with praline cream.</p>
+                <div class="d-flex justify-content-between flex-lg-wrap">
+                  <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
+                  <a
+                    href="#"
+                    class="btn border border-secondary rounded-pill px-3 text-primary"
+                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                    cart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h1 class="text-center collection display-6 mb-4" id="drinks">Drinks</h1>
+      <div class="col-lg-12">
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <div class="rounded position-relative fruite-item">
+              <div class="fruite-img">
+                <img
+                  src="img/drink1.jpg"
+                  class="img-fluid w-100 rounded-top"
+                  alt=""
+                />
+              </div>
+              <div
+                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                style="top: 10px; left: 10px"
+              >
+                Drink
+              </div>
+              <div
+                class="p-4 border border-primary border-top-0 rounded-bottom"
+              >
+                <h4>Café au Lait</h4>
+                <p>Coffee base and warm milk, served in a large cup.</p>
+                <div class="d-flex justify-content-between flex-lg-wrap">
+                  <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
+                  <a
+                    href="#"
+                    class="btn border border-secondary rounded-pill px-3 text-primary"
+                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                    cart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <div class="rounded position-relative fruite-item">
+              <div class="fruite-img">
+                <img
+                  src="img/drink2.jpg"
+                  class="img-fluid w-100 rounded-top"
+                  alt=""
+                />
+              </div>
+              <div
+                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                style="top: 10px; left: 10px"
+              >
+                Drink
+              </div>
+              <div
+                class="p-4 border border-primary border-top-0 rounded-bottom"
+              >
+                <h4>Chocolat Chaud</h4>
+                <p>Hot chocolate made with dark chocolate and milk.</p>
+                <div class="d-flex justify-content-between flex-lg-wrap">
+                  <p class="text-dark fs-5 fw-bold mb-0">Rp 40.000</p>
+                  <a
+                    href="#"
+                    class="btn border border-secondary rounded-pill px-3 text-primary"
+                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                    cart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <div class="rounded position-relative fruite-item">
+              <div class="fruite-img">
+                <img
+                  src="img/drink3.jpg"
+                  class="img-fluid w-100 rounded-top"
+                  alt=""
+                />
+              </div>
+              <div
+                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                style="top: 10px; left: 10px"
+              >
+                Drink
+              </div>
+              <div
+                class="p-4 border border-primary border-top-0 rounded-bottom"
+              >
+                <h4>Thé à la Menthe</h4>
+                <p>A refreshing aromatic green tea with fresh mint.</p>
+                <div class="d-flex justify-content-between flex-lg-wrap">
+                  <p class="text-dark fs-5 fw-bold mb-0">Rp 25.000</p>
+                  <a
+                    href="#"
+                    class="btn border border-secondary rounded-pill px-3 text-primary"
+                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                    cart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fruits Shop End-->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+      <div class="container py-5">
+        <div
+          class="pb-4 mb-4"
+          style="border-bottom: 1px solid rgba(226, 175, 24, 0.5)"
+        >
+          <div class="row g-4">
+            <div class="col-lg-3">
+              <a href="#">
+                <h1 class="text-primary mb-0">Maison</h1>
+                <p class="text-secondary mb-0">du croissant</p>
+              </a>
+            </div>
+            <div class="col-lg-9">
+              <div class="d-flex justify-content-end pt-3">
+                <a
+                  class="btn btn-outline-secondary btn-md-square rounded-circle"
+                  href="https://instagram.com/kairyyy30"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row g-5">
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-item">
+              <h4 class="text-white mb-3">About us!</h4>
+              <p class="mb-4 text-white">
+                Maison du croissant, spesialisasi dalam croissant mewah dengan
+                bahan-bahan terbaik. Kami berkomitmen untuk memberikan
+                pengalaman kuliner yang elegan melalui sentuhan unik pada setiap
+                produk kami.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <img
+              src="img/ambayug1.jpeg"
+              class="img-fluid w-100 rounded"
+              alt="ambayugi"
+            />
+          </div>
+          <div class="col-lg-3">
+            <img
+              src="img/ambayug1.jpeg"
+              class="img-fluid w-100 rounded"
+              alt="ambayugi"
+            />
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-item">
+              <h4 class="text-light mb-3">Contact</h4>
+              <p>Address: Pondok Cina, Beji, Depok City, West Java.</p>
+              <p>Email: ambayug@gmail.com</p>
+              <p>Phone: +62 823 8929 6775 (ini ngasal)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright bg-dark py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <span class="text-light"
+              ><a href="#" class="text-white"
+                ><i class="fas fa-copyright text-light me-2"></i>Masion du
+                Croissant</a
+              >, All right reserved.</span
+            >
+          </div>
+          <div class="col-md-6 my-auto text-center text-md-end text-white">
+            <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+            <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+            <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+            Designed By&nbsp;
+            <a
+              class="border-secondary border px-3 fw-bold text-white"
+              href="https://umkmmekarsari.tcugapps.com/profileorangganteng"
+              >;P</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a
+      href="cart.html"
+      class="btn btn-primary border border-secondary rounded-pill back-to-top text-white"
+      >Open Cart<i class="fas fa-shopping-cart"></i
+    ></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
