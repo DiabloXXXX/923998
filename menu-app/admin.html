@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <title>Admin Dashboard - Maison du Croissant</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+    
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+    
+    <!-- Enhanced Responsive Design -->
+    <link href="css/responsive-design.css" rel="stylesheet" />
+    
+    <!-- Cross-Device Compatibility -->
+    <link href="css/cross-device-compatibility.css" rel="stylesheet" />
+    
+    <!-- Mobile Optimization -->
+    <link href="css/mobile-optimization.css" rel="stylesheet" />
+    
+    <!-- Luxury Theme -->
+    <link href="css/luxury-theme.css" rel="stylesheet" />
+    
+    <!-- Admin Styles -->
+    <link href="css/admin-styles.css" rel="stylesheet" />
+</head>
+
+<body class="admin-body">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show w-100 vh-100 position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center" style="background: var(--luxury-cream);">
+        <div class="spinner-luxury" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Admin Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark admin-navbar fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand admin-brand" href="#">
+                <i class="fas fa-crown me-2"></i>Admin Panel - Maison du Croissant
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="adminNavbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html" target="_blank">
+                            <i class="fas fa-external-link-alt me-1"></i>View Website
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="logout()">
+                            <i class="fas fa-sign-out-alt me-1"></i>Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Content -->
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+            <div class="sidebar-menu">
+                <a href="#dashboard" class="menu-item active" onclick="showSection('dashboard')">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#menu-management" class="menu-item" onclick="showSection('menu-management')">
+                    <i class="fas fa-utensils"></i>
+                    <span>Kelola Menu</span>
+                </a>
+                <a href="#orders" class="menu-item" onclick="showSection('orders')">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Pesanan</span>
+                </a>
+                <a href="#customers" class="menu-item" onclick="showSection('customers')">
+                    <i class="fas fa-users"></i>
+                    <span>Pelanggan</span>
+                </a>
+                <a href="#analytics" class="menu-item" onclick="showSection('analytics')">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Analitik</span>
+                </a>
+                <a href="#settings" class="menu-item" onclick="showSection('settings')">
+                    <i class="fas fa-cog"></i>
+                    <span>Pengaturan</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="admin-main-content">
+            
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="admin-section active">
+                <div class="section-header">
+                    <h2><i class="fas fa-tachometer-alt me-2"></i>Dashboard</h2>
+                    <p>Ringkasan aktivitas Maison du Croissant</p>
+                </div>
+                
+                <div class="row g-4 mb-4">
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card stats-card bg-primary text-white">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h6 class="card-title">Total Menu</h6>
+                                        <h3 class="mb-0" id="totalMenus">0</h3>
+                                    </div>
+                                    <div class="stats-icon">
+                                        <i class="fas fa-utensils"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card stats-card bg-success text-white">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h6 class="card-title">Pesanan Hari Ini</h6>
+                                        <h3 class="mb-0" id="todayOrders">0</h3>
+                                    </div>
+                                    <div class="stats-icon">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card stats-card bg-warning text-white">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h6 class="card-title">Pendapatan Hari Ini</h6>
+                                        <h3 class="mb-0" id="todayRevenue">Rp 0</h3>
+                                    </div>
+                                    <div class="stats-icon">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card stats-card bg-info text-white">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h6 class="card-title">Total Pelanggan</h6>
+                                        <h3 class="mb-0" id="totalCustomers">0</h3>
+                                    </div>
+                                    <div class="stats-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Grafik Penjualan</h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="salesChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Menu Terpopuler</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="popularMenus" class="popular-menu-list">
+                                    <!-- Popular menus will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Management Section -->
+            <div id="menu-management" class="admin-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-utensils me-2"></i>Kelola Menu</h2>
+                    <button class="btn btn-luxury-primary" onclick="showAddMenuModal()">
+                        <i class="fas fa-plus me-1"></i>Tambah Menu Baru
+                    </button>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h5 class="card-title mb-0">Daftar Menu</h5>
+                            </div>
+                            <div class="col-auto">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Cari menu..." id="searchMenu">
+                                    <button class="btn btn-outline-secondary" type="button">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-luxury" id="menuTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Gambar</th>
+                                        <th>Nama Menu</th>
+                                        <th>Kategori</th>
+                                        <th>Harga</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="menuTableBody">
+                                    <!-- Menu items will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders Section -->
+            <div id="orders" class="admin-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-shopping-cart me-2"></i>Pesanan</h2>
+                    <div class="section-actions">
+                        <select class="form-select" id="orderFilter">
+                            <option value="all">Semua Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="confirmed">Dikonfirmasi</option>
+                            <option value="preparing">Sedang Disiapkan</option>
+                            <option value="ready">Siap Diambil</option>
+                            <option value="completed">Selesai</option>
+                            <option value="cancelled">Dibatalkan</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-luxury" id="ordersTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID Order</th>
+                                        <th>Tanggal</th>
+                                        <th>Pelanggan</th>
+                                        <th>Items</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ordersTableBody">
+                                    <!-- Orders will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other sections (customers, analytics, settings) placeholder -->
+            <div id="customers" class="admin-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-users me-2"></i>Pelanggan</h2>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p>Fitur manajemen pelanggan akan segera hadir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="analytics" class="admin-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-bar me-2"></i>Analitik</h2>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p>Fitur analitik akan segera hadir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="settings" class="admin-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-cog me-2"></i>Pengaturan</h2>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p>Fitur pengaturan akan segera hadir.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Menu Modal -->
+    <div class="modal fade" id="menuModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="menuModalTitle">Tambah Menu Baru</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="menuForm" enctype="multipart/form-data">
+                        <input type="hidden" id="menuId" name="menuId">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="menuName" class="form-label">Nama Menu</label>
+                                <input type="text" class="form-control" id="menuName" name="menuName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="menuCategory" class="form-label">Kategori</label>
+                                <select class="form-select" id="menuCategory" name="menuCategory" required>
+                                    <option value="">Pilih Kategori</option>
+                                    <option value="Pastry">Pastry</option>
+                                    <option value="Bread">Bread</option>
+                                    <option value="Cake">Cake</option>
+                                    <option value="Drink">Drink</option>
+                                    <option value="Coffee">Coffee</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="menuPrice" class="form-label">Harga (Rp)</label>
+                                <input type="number" class="form-control" id="menuPrice" name="menuPrice" min="0" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="menuStatus" class="form-label">Status</label>
+                                <select class="form-select" id="menuStatus" name="menuStatus" required>
+                                    <option value="active">Aktif</option>
+                                    <option value="inactive">Tidak Aktif</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="menuDescription" class="form-label">Deskripsi</label>
+                                <textarea class="form-control" id="menuDescription" name="menuDescription" rows="3" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label for="menuFeatures" class="form-label">Fitur/Keunggulan</label>
+                                <input type="text" class="form-control" id="menuFeatures" name="menuFeatures" placeholder="Contoh: 🌙 Bentuk Bulan Sabit | 🧈 Berlapis Mentega | 🥐 Klasik Prancis">
+                            </div>
+                            <div class="col-12">
+                                <label for="menuImage" class="form-label">Gambar Menu</label>
+                                <input type="file" class="form-control" id="menuImage" name="menuImage" accept="image/*">
+                                <div class="form-text">Upload gambar dalam format JPG, PNG, atau JPEG. Maksimal 2MB.</div>
+                                <div id="imagePreview" class="mt-2"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-luxury-primary" onclick="saveMenu()">Simpan Menu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Konfirmasi Hapus</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah Anda yakin ingin menghapus menu ini?</p>
+                    <p class="text-muted">Tindakan ini tidak dapat dibatalkan.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-danger" id="confirmDelete">Hapus</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Admin Scripts -->
+    <script src="js/admin.js"></script>
+    <script src="js/database.js"></script>
+    
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
