@@ -34,6 +34,9 @@
   <!-- Cross-Device Compatibility -->
   <link href="css/cross-device-compatibility.css" rel="stylesheet" />
   
+  <!-- Mobile Optimization -->
+  <link href="css/mobile-optimization.css" rel="stylesheet" />
+  
   <!-- Luxury Theme -->
   <link href="css/luxury-theme.css" rel="stylesheet" />
 </head>
@@ -101,7 +104,7 @@
   <div class="container-fluid cart-content py-2" style="background: var(--luxury-cream);">
     <div class="container py-1">
       <div class="table-responsive">
-        <table class="table table-luxury">
+        <table class="table table-luxury table-mobile-stack">
           <thead>
             <tr>
               <th scope="col" style="color: var(--luxury-black); font-weight: 600; min-width: 120px;">Produk</th>
@@ -114,19 +117,19 @@
           </thead>
           <tbody>
             <tr>
-              <td>
+              <td data-label="Produk">
                 <div class="d-flex align-items-center">
                   <img src="img/pastry2.jpg" class="img-fluid rounded-circle" style="width: 80px; height: 80px; object-fit: cover;"
                     alt="Pain au chocolate" />
                 </div>
               </td>
-              <td class="align-middle">
+              <td class="align-middle" data-label="Nama">
                 <p class="mb-0 product-name">Pain au Chocolate</p>
               </td>
-              <td class="align-middle">
+              <td class="align-middle" data-label="Harga">
                 <p class="mb-0 price-text">Rp 35.000</p>
               </td>
-              <td class="align-middle">
+              <td class="align-middle" data-label="Kuantitas">
                 <div class="input-group" style="width: 120px;">
                   <button class="btn btn-sm" style="background: var(--luxury-gold); border: 1px solid var(--luxury-gold); color: var(--luxury-black); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;" type="button">
                     <i class="fa fa-minus" style="font-size: 0.75rem;"></i>
@@ -137,29 +140,29 @@
                   </button>
                 </div>
               </td>
-              <td class="align-middle">
+              <td class="align-middle" data-label="Total">
                 <p class="mb-0 price-text">Rp 35.000</p>
               </td>
-              <td class="align-middle">
+              <td class="align-middle" data-label="Aksi">
                 <button class="btn btn-sm" style="background: #dc3545; border: 1px solid #dc3545; color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;" title="Hapus item">
                   <i class="fa fa-times" style="font-size: 0.75rem;"></i>
                 </button>
               </td>
             </tr>
             <tr>
-              <td>
+              <td data-label="Produk">
                 <div class="d-flex align-items-center">
                   <img src="img/pastry1.jpg" class="img-fluid rounded-circle" style="width: 80px; height: 80px; object-fit: cover;"
                     alt="Croissant" />
                 </div>
               </td>
-              <td class="align-middle">
+              <td class="align-middle" data-label="Nama">
                 <p class="mb-0 product-name">Croissant</p>
               </td>
-              <td class="align-middle">
+              <td class="align-middle" data-label="Harga">
                 <p class="mb-0 price-text">Rp 25.000</p>
               </td>
-              <td class="align-middle">
+              <td class="align-middle" data-label="Kuantitas">
                 <div class="input-group" style="width: 120px;">
                   <button class="btn btn-sm" style="background: var(--luxury-gold); border: 1px solid var(--luxury-gold); color: var(--luxury-black); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;" type="button">
                     <i class="fa fa-minus" style="font-size: 0.75rem;"></i>
@@ -170,10 +173,10 @@
                   </button>
                 </div>
               </td>
-              <td class="align-middle">
+              <td class="align-middle" data-label="Total">
                 <p class="mb-0 price-text">Rp 25.000</p>
               </td>
-              <td class="align-middle">
+              <td class="align-middle" data-label="Aksi">
                 <button class="btn btn-sm" style="background: #dc3545; border: 1px solid #dc3545; color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;" title="Hapus item">
                   <i class="fa fa-times" style="font-size: 0.75rem;"></i>
                 </button>
