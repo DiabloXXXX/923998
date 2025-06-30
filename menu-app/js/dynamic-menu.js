@@ -225,7 +225,7 @@ function createMenuCard(menu) {
                     <p class="text-dark fs-5 fw-bold mb-0">${formattedPrice}</p>
                 </div>
                 <div class="d-flex gap-2 mt-3">
-                    <button class="btn btn-luxury-secondary flex-fill" onclick="showProductDetail('${menu.name}', '${menu.image}', '${formattedPrice}', '${menu.description}', '${menu.category}')">
+                    <button class="btn btn-luxury-secondary flex-fill" onclick="showProductDetail('${menu.name}', '${menu.image}', '${formattedPrice}', '${menu.description}', '${menu.category}', ${menu.price})">>
                         <i class="fas fa-info-circle me-1"></i>Detail
                     </button>
                     <button class="btn btn-luxury-primary flex-fill add-to-cart-btn" 
