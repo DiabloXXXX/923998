@@ -1,0 +1,439 @@
+/* Enhanced Menu and Modal Styles - Original Theme */
+
+/* Color Palette - Kembali ke tema original */
+:root {
+    --primary-color: #0d6efd;          /* Bootstrap primary blue */
+    --secondary-color: #6c757d;        /* Bootstrap secondary */
+    --success-color: #198754;          /* Bootstrap success */
+    --info-color: #0dcaf0;             /* Bootstrap info */
+    --warning-color: #ffc107;          /* Bootstrap warning */
+    --danger-color: #dc3545;           /* Bootstrap danger */
+    --light-color: #f8f9fa;            /* Bootstrap light */
+    --dark-color: #212529;             /* Bootstrap dark */
+    --accent-color: #6f42c1;           /* Purple accent */
+}
+
+/* Product Card Enhancements */
+.fruite-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--light-color);
+}
+
+.fruite-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(13, 110, 253, 0.2);
+    border-color: var(--primary-color);
+}
+
+/* Konsistensi Tombol Aksi */
+.btn-action {
+    height: 38px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 2px solid;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    min-width: 90px;
+}
+
+/* Tombol Detail (Sekunder) */
+.btn-detail {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-detail:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+/* Tombol Tambah/Add to Cart (Primer) */
+.btn-add-cart {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.btn-add-cart:hover {
+    background-color: #0b5ed7;
+    border-color: #0b5ed7;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(11, 94, 215, 0.4);
+}
+
+/* Override Bootstrap Primary - kembali ke warna original */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #0b5ed7;
+    border-color: #0b5ed7;
+    color: white;
+    box-shadow: 0 4px 12px rgba(11, 94, 215, 0.3);
+}
+
+/* Tombol Outline */
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: transparent;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* Tombol Konfirmasi (Aksi Utama) */
+.btn-confirm {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border: 2px solid var(--primary-color);
+    color: white;
+    height: 45px;
+    padding: 0.7rem 1.5rem;
+    font-weight: 600;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-confirm:hover {
+    background: linear-gradient(135deg, #0b5ed7, #5a359a);
+    border-color: #0b5ed7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.4);
+    color: white;
+}
+
+/* Tombol Secondary */
+.btn-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+    background-color: #5c636a;
+    border-color: #5c636a;
+    color: white;
+}
+
+/* Modal Enhancements dengan tema bakery */
+.modal-content {
+    border-radius: 15px;
+    border: 3px solid var(--bakery-light);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(139, 69, 19, 0.2);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--bakery-primary), var(--bakery-secondary));
+    border-radius: 15px 15px 0 0 !important;
+    border: none;
+    color: white;
+}
+
+.modal-header.bg-success {
+    background: linear-gradient(135deg, #2d5a2d, #4a7c4a) !important;
+}
+
+.modal-footer {
+    border: none;
+    border-radius: 0 0 15px 15px;
+    background-color: #fafafa;
+    padding: 1.5rem;
+}
+
+/* Product Detail Badges dengan warna bakery */
+.fruite-item small.text-muted {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    color: var(--bakery-secondary) !important;
+    font-weight: 500;
+}
+
+/* Quantity Controls dengan tema bakery */
+.input-group-btn .btn {
+    border-radius: 50% !important;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background-color: var(--bakery-light);
+    border: 2px solid var(--bakery-accent);
+    color: var(--bakery-primary);
+}
+
+.input-group-btn .btn:hover {
+    background-color: var(--bakery-accent);
+    border-color: var(--bakery-primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Cart Enhancements */
+.empty-cart {
+    padding: 3rem 1rem;
+}
+
+.empty-cart i {
+    opacity: 0.5;
+    color: var(--bakery-accent);
+}
+
+/* Progress Steps dengan warna bakery */
+.progress-step {
+    position: relative;
+}
+
+.progress-step::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: var(--bakery-light);
+    z-index: -1;
+}
+
+.progress-step:last-child::after {
+    display: none;
+}
+
+.progress-step.active::after {
+    background: var(--bakery-primary);
+}
+
+/* Success Animations */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal.show .modal-content {
+    animation: bounceIn 0.5s ease-out;
+}
+
+/* Notification Styles dengan tema bakery */
+.alert {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.1);
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #2d5a2d, #4a7c4a);
+    color: white;
+}
+
+.alert-info {
+    background: linear-gradient(135deg, var(--bakery-accent), var(--bakery-secondary));
+    color: white;
+}
+
+/* Form Enhancements */
+.form-check {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.form-check:hover {
+    background-color: var(--bakery-light) !important;
+    border-color: var(--bakery-primary) !important;
+}
+
+.form-check-input:checked + .form-check-label {
+    color: var(--bakery-primary);
+    font-weight: 600;
+}
+
+/* Card Shadows dengan tema bakery */
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card.shadow {
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.15) !important;
+    border: 2px solid var(--bakery-light);
+}
+
+/* Badge Enhancements */
+.badge {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+.bg-primary {
+    background-color: var(--bakery-primary) !important;
+}
+
+/* Loading States */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Enhanced Product Images */
+.fruite-img img {
+    transition: transform 0.3s ease;
+    border-radius: 8px 8px 0 0;
+}
+
+.fruite-item:hover .fruite-img img {
+    transform: scale(1.05);
+}
+
+/* Checkout Button Enhancement dengan tema bakery */
+.btn-checkout {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--bakery-red), var(--bakery-primary));
+    border: 2px solid var(--bakery-red);
+    color: white;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-checkout:hover {
+    background: linear-gradient(135deg, var(--bakery-dark), var(--bakery-red));
+    border-color: var(--bakery-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(160, 82, 45, 0.4);
+    color: white;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .modal-lg {
+        max-width: 95%;
+    }
+    
+    .fruite-item .d-flex.gap-2 {
+        flex-direction: column;
+        gap: 0.5rem !important;
+    }
+    
+    .btn-action {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn-confirm {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+/* Custom Scrollbar dengan tema bakery */
+.modal-body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--bakery-primary) var(--bakery-light);
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: var(--bakery-light);
+    border-radius: 3px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: var(--bakery-primary);
+    border-radius: 3px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: var(--bakery-dark);
+}
+
+/* Cart Total Section dengan tema bakery */
+.bg-light.rounded {
+    border: 2px solid var(--bakery-light);
+    background: linear-gradient(135deg, var(--bakery-light), #ffffff) !important;
+}
+
+.cart-total-section {
+    background: var(--bakery-light);
+    border: 2px solid var(--bakery-accent);
+    border-radius: 15px;
+    padding: 1.5rem;
+}
+
+/* Navbar dengan tema bakery */
+.bg-kita {
+    background: linear-gradient(135deg, var(--bakery-primary), var(--bakery-secondary)) !important;
+}
+
+/* Footer dengan tema bakery */
+.bg-dark {
+    background: var(--bakery-dark) !important;
+}
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(135deg, var(--bakery-light), var(--bakery-warm));
+    color: var(--bakery-dark);
+}
+
+/* Text Colors */
+.text-primary {
+    color: var(--bakery-primary) !important;
+}
+
+.maison-du-croissant {
+    color: var(--bakery-light) !important;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.authentic {
+    color: var(--bakery-dark) !important;
+    font-weight: 600;
+}

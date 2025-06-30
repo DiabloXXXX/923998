@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication Test - Maison du Croissant</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link href="css/luxury-theme.css" rel="stylesheet">
+    
+    <style>
+        body { 
+            background: var(--luxury-black); 
+            color: var(--luxury-cream); 
+            font-family: 'Playfair Display', serif;
+            padding: 20px;
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 1px solid var(--luxury-gold);
+        }
+        .user-info {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+        #userNav {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .btn-luxury {
+            background: var(--luxury-gold);
+            color: var(--luxury-black);
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        .btn-luxury:hover {
+            background: #c4960c;
+            color: var(--luxury-black);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">
+            <i class="fas fa-crown text-warning"></i>
+            User Authentication Test
+        </h1>
+        
+        <div class="test-section">
+            <h3><i class="fas fa-user-circle"></i> Current User Status</h3>
+            <div id="currentStatus" class="user-info">
+                <p><strong>Status:</strong> <span id="loginStatus">Loading...</span></p>
+                <p><strong>User:</strong> <span id="currentUser">Loading...</span></p>
+                <p><strong>Navigation:</strong></p>
+                <div id="userNav">Loading navigation...</div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3><i class="fas fa-cogs"></i> Test Actions</h3>
+            <button class="btn btn-luxury" onclick="testLogin()">
+                <i class="fas fa-sign-in-alt"></i> Test Login
+            </button>
+            <button class="btn btn-luxury" onclick="testLogout()">
+                <i class="fas fa-sign-out-alt"></i> Test Logout
+            </button>
+            <button class="btn btn-luxury" onclick="refreshStatus()">
+                <i class="fas fa-sync"></i> Refresh Status
+            </button>
+            <button class="btn btn-luxury" onclick="clearAllData()">
+                <i class="fas fa-trash"></i> Clear All Data
+            </button>
+        </div>
+        
+        <div class="test-section">
+            <h3><i class="fas fa-list"></i> Event Log</h3>
+            <div id="eventLog" style="max-height: 300px; overflow-y: auto; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px;">
+                <p><em>Events will appear here...</em></p>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3><i class="fas fa-database"></i> LocalStorage Data</h3>
+            <button class="btn btn-luxury" onclick="showLocalStorageData()">
+                <i class="fas fa-eye"></i> Show Data
+            </button>
+            <div id="storageData" style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; margin-top: 10px; display: none;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/user-auth.js"></script>
+    <script src="js/user-navigation.js"></script>
+    
+    <script>
+        // Event logging
+        const eventLog = document.getElementById('eventLog');
+        
+        function logEvent(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.innerHTML = `<strong>[${timestamp}]</strong> ${message}`;
+            logEntry.style.marginBottom = '5px';
+            eventLog.appendChild(logEntry);
+            eventLog.scrollTop = eventLog.scrollHeight;
+        }
+        
+        // Listen for user auth events
+        document.addEventListener('userAuthChange', function(e) {
+            logEvent(`🔄 User auth event: ${e.detail.type} - User: ${e.detail.user ? e.detail.user.fullName : 'None'}`);
+            setTimeout(refreshStatus, 200);
+        });
+        
+        // Test functions
+        function testLogin() {
+            logEvent('🧪 Testing login with demo user...');
+            
+            // Simulate login
+            const result = UserAuth.login({
+                username: 'customer1',
+                password: 'password123'
+            });
+            
+            if (result.success) {
+                UserAuth.setCurrentUser(result.user, false);
+                
+                // Dispatch event
+                const event = new CustomEvent('userAuthChange', {
+                    detail: {
+                        type: 'login',
+                        user: result.user
+                    }
+                });
+                document.dispatchEvent(event);
+                
+                logEvent('✅ Login successful!');
+            } else {
+                logEvent('❌ Login failed: ' + result.message);
+            }
+        }
+        
+        function testLogout() {
+            logEvent('🧪 Testing logout...');
+            UserAuth.logout();
+            
+            // Dispatch event
+            const event = new CustomEvent('userAuthChange', {
+                detail: {
+                    type: 'logout',
+                    user: null
+                }
+            });
+            document.dispatchEvent(event);
+            
+            logEvent('✅ Logout completed!');
+        }
+        
+        function refreshStatus() {
+            logEvent('🔄 Refreshing status...');
+            
+            const isLoggedIn = UserAuth && UserAuth.isLoggedIn();
+            const currentUser = UserAuth && UserAuth.getCurrentUser();
+            
+            document.getElementById('loginStatus').textContent = isLoggedIn ? 'Logged In' : 'Not Logged In';
+            document.getElementById('currentUser').textContent = currentUser ? 
+                `${currentUser.fullName} (${currentUser.username})` : 'None';
+            
+            // Update navigation
+            if (typeof updateUserNavigation === 'function') {
+                updateUserNavigation();
+            }
+            
+            logEvent(`📊 Status: ${isLoggedIn ? 'Logged In' : 'Not Logged In'} - User: ${currentUser ? currentUser.fullName : 'None'}`);
+        }
+        
+        function clearAllData() {
+            if (confirm('Clear all user data? This will reset everything.')) {
+                localStorage.clear();
+                sessionStorage.clear();
+                logEvent('🗑️ All data cleared!');
+                setTimeout(refreshStatus, 500);
+            }
+        }
+        
+        function showLocalStorageData() {
+            const storageDiv = document.getElementById('storageData');
+            let html = '<h5>LocalStorage Keys:</h5>';
+            
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+                
+                html += `<p><strong>${key}:</strong><br>`;
+                if (key.includes('user') || key.includes('current')) {
+                    try {
+                        const parsed = JSON.parse(value);
+                        html += `<code>${JSON.stringify(parsed, null, 2)}</code>`;
+                    } catch (e) {
+                        html += `<code>${value}</code>`;
+                    }
+                } else {
+                    html += `<code>${value.length > 100 ? value.substring(0, 100) + '...' : value}</code>`;
+                }
+                html += '</p>';
+            }
+            
+            storageDiv.innerHTML = html;
+            storageDiv.style.display = storageDiv.style.display === 'none' ? 'block' : 'none';
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            logEvent('🚀 Test page loaded');
+            setTimeout(refreshStatus, 1000);
+        });
+    </script>
+</body>
+</html>

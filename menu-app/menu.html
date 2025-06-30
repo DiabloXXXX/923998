@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="utf-8" />
-    <title>Boulangerie - Bakery</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="keywords" />
-    <meta content="" name="description" />
+    <title>Menu - Maison du Croissant</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+    <meta content="Maison du Croissant, bakery, pastry, roti, kue" name="keywords" />
+    <meta content="Menu lengkap Maison du Croissant - Bakery & Pastry terbaik dengan pilihan roti dan kue segar" name="description" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&family=Playfair+Display:wght@400;    <!-- Modal Konfirmasi Pembelian -->p"
       rel="stylesheet"
     />
 
@@ -34,83 +34,144 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
+    
+    <!-- Enhanced Responsive Design -->
+    <link href="css/responsive-design.css" rel="stylesheet" />
+    
+    <!-- Cross-Device Compatibility -->
+    <link href="css/cross-device-compatibility.css" rel="stylesheet" />
+    
+    <!-- Mobile Optimization -->
+    <link href="css/mobile-optimization.css" rel="stylesheet" />
+    
+    <!-- Luxury Theme -->
+    <link href="css/luxury-theme.css" rel="stylesheet" />
   </head>
 
   <body>
     <!-- Spinner Start -->
     <div
       id="spinner"
-      class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center"
+      class="show w-100 vh-100 position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center"
+      style="background: var(--luxury-cream);"
     >
-      <div class="spinner-grow text-primary" role="status"></div>
+      <div class="spinner-luxury" role="status"></div>
     </div>
     <!-- Spinner End -->
 
     <!-- Navbar start -->
-    <div
-      class="container-fluid fixed-top bg-kita d-flex align-items-center text-center justify-content-center"
-    >
+    <div class="container-fluid fixed-top" style="background: var(--luxury-black);">
       <div class="container">
-        <nav class="navbar navbar-expand-xl">
-          <a href="menu.html" class="mx-auto">
-            <h6 class="text-center maison-du-croissant display-6">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <a href="menu.html" class="navbar-brand">
+            <h5 class="mb-0 maison-du-croissant" style="color: var(--luxury-gold); font-family: 'Playfair Display', serif;">
               Maison du Croissant
-            </h6>
+            </h5>
           </a>
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="menu.html">
+                  <i class="fas fa-utensils me-1"></i>Menu
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="cart.html">
+                  <i class="fas fa-shopping-cart me-1"></i>Keranjang
+                  <span class="badge ms-1 cart-count" style="display: none; background: var(--luxury-gold); color: var(--luxury-black);">0</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="confirm-order.html">
+                  <i class="fas fa-clipboard-check me-1"></i>Pesanan
+                </a>
+              </li>
+              
+              <!-- User Navigation -->
+              <li class="nav-item" id="userNav">
+                <!-- Content will be dynamically updated by user-navigation.js -->
+              </li>
+            </ul>
+          </div>
         </nav>
       </div>
     </div>
     <!-- Navbar End -->
 
-    <!-- Single Page Header start -->
-    <div class="container-fluid page-header py-3">
-      <h1 class="text-center authentic display-6">Authentic French Pastries</h1>
-      <!-- Search button start -->
-      <div class="input-group kastem-woi mx-auto d-flex mb-0">
-        <form
-          action=""
-          method="GET"
-          class="input-group input-custom mx-auto d-flex"
-        >
-          <input
-            type="search"
-            name="produk"
-            class="form-control border-2 border-secondary rounded-pill text-center"
-            placeholder="Find Menu Here!"
-            aria-describedby="search-icon-1"
-          />
-          <button
-            id="search-icon-1"
-            class="btn btn-primary border border-secondary px-4 position-absolute rounded-pill text-white d-flex align-items-center justify-content-center"
-            style="bottom: 0; right: 0; height: 100%"
+    <!-- Luxury Hero Section start -->
+    <div class="hero-section py-5">
+      <div class="container">
+        <div class="hero-content text-center">
+          <h1 class="hero-title luxury-fade-in">Maison du Croissant</h1>
+          <p class="hero-subtitle luxury-fade-in">Authentic French Pastries & Artisanal Bakery</p>
+          <div class="luxury-divider-center">
+            <span>✨ Savourez l'Excellence ✨</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Luxury Hero Section end -->
+
+    <!-- Search Section start -->
+    <div class="container-fluid py-4" style="background: var(--luxury-cream);">
+      <div class="container">
+        <!-- Search button start -->
+        <div class="input-group kastem-woi mx-auto d-flex mb-0">
+          <form
+            action=""
+            method="GET"
+            class="input-group input-custom mx-auto d-flex"
           >
-            <i class="fa fa-search" type="submit"></i>
-          </button>
+            <input
+              type="search"
+              name="produk"
+              class="form-control border-2 border-secondary rounded-pill text-center"
+              placeholder="Recherchez votre pâtisserie préférée..."
+              aria-describedby="search-icon-1"
+            />
+            <button
+              id="search-icon-1"
+              class="btn btn-luxury-primary border border-secondary px-4 position-absolute rounded-pill text-white d-flex align-items-center justify-content-center"
+              style="bottom: 0; right: 0; height: 100%"
+            >
+              <i class="fa fa-search" type="submit"></i>
+            </button>
         </form>
       </div>
-      <div class="breadcrumb-container text-center mt-3 py-2">
+      <div class="breadcrumb-container text-center mt-4 py-3">
         <ol class="breadcrumb justify-content-center mb-0 breadcrumb-custom">
           <li class="breadcrumb-item">
-            <a href="#" class="text-white">All Menu</a>
+            <a href="#" class="text-dark" style="color: var(--luxury-gold) !important;">Tous les Menus</a>
           </li>
           <li class="breadcrumb-item">
             <a href="#pastry" class="text-white">Pastries</a>
           </li>
           <li class="breadcrumb-item">
-            <a href="#drinks" class="text-white">Drinks</a>
+            <a href="#drinks" class="text-dark" style="color: var(--luxury-gold) !important;">Boissons</a>
           </li>
         </ol>
       </div>
     </div>
-    <!-- Search button End-->
-    <!-- Single Page Header End -->
+    </div>
+    <!-- Search Section End-->
 
-    <!-- Fruits Shop Start-->
-    <div class="container-fluid fruite py-2">
-      <h1 class="text-center collection display-6 mb-4" id="pastry">
-        Pastry Collection
-      </h1>
-      <div class="col-lg-12">
+    <!-- Luxury Products Section Start-->
+    <div class="container-fluid py-5" style="background: var(--luxury-cream);">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h1 class="display-4 mb-4 luxury-fade-in" id="pastry" style="color: var(--luxury-black); font-family: 'Playfair Display', serif;">
+            Collection Pâtisserie
+          </h1>
+          <div class="luxury-divider mx-auto" style="width: 150px;"></div>
+          <p class="lead mt-4" style="color: var(--luxury-black); opacity: 0.8;">
+            Découvrez nos créations artisanales françaises
+          </p>
+        </div>
         <div class="row g-4 justify-content-center">
           <div class="col-md-3 col-lg-3 col-xl-3">
             <div class="rounded position-relative fruite-item">
@@ -122,27 +183,38 @@
                 />
               </div>
               <div
-                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                class="text-white luxury-badge px-3 py-1 rounded position-absolute"
                 style="top: 10px; left: 10px"
               >
                 Pastry
               </div>
               <div
-                class="p-4 border border-primary border-top-0 rounded-bottom"
+                class="p-4 rounded-bottom" style="border: 2px solid var(--luxury-gold); border-top: none; background: rgba(245, 245, 220, 0.1);"
               >
                 <h4>Croissant</h4>
-                <p>
-                  Buttery, flaky, and crescent-shaped pastry. Made from a
-                  layered dough.
-                </p>
-                <div class="d-flex justify-content-between flex-lg-wrap">
+                <p>Pastry berlapis mentega yang renyah berbentuk bulan sabit, dibuat dari adonan berlapis.</p>
+                <div class="mb-3">
+                  <small class="product-features">🌙 Bentuk Bulan Sabit | 🧈 Berlapis Mentega | 🥐 Klasik Prancis</small>
+                </div>
+                <div class="d-flex justify-content-between flex-lg-wrap mb-2">
                   <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
-                  <a
-                    href="#"
-                    class="btn border border-secondary rounded-pill px-3 text-primary"
-                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                    cart</a
-                  >
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                  <button
+                    class="btn btn-luxury-secondary flex-fill"
+                    onclick="showProductDetail('Croissant', 'img/pastry1.jpg', 'Rp 35.000', 'Pastry berlapis mentega yang renyah berbentuk bulan sabit, dibuat dari adonan berlapis dengan teknik laminating tradisional Prancis. Setiap gigitan memberikan tekstur yang renyah di luar dan lembut di dalam.', 'Pastry', 35000)"
+                    >
+                    <i class="fas fa-info-circle me-1"></i>Detail
+                  </button>
+                  <button
+                    class="btn btn-luxury-primary flex-fill add-to-cart-btn"
+                    data-product-name="Croissant"
+                    data-product-image="img/pastry1.jpg"
+                    data-product-price="Rp 35.000"
+                    data-product-price-num="35000"
+                    >
+                    <i class="fa fa-shopping-bag me-1"></i>Tambah
+                  </button>
                 </div>
               </div>
             </div>
@@ -157,24 +229,38 @@
                 />
               </div>
               <div
-                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                class="text-white luxury-badge px-3 py-1 rounded position-absolute"
                 style="top: 10px; left: 10px"
               >
                 Pastry
               </div>
               <div
-                class="p-4 border border-primary border-top-0 rounded-bottom"
+                class="p-4 rounded-bottom" style="border: 2px solid var(--luxury-gold); border-top: none; background: rgba(245, 245, 220, 0.1);"
               >
                 <h4>Pain au Chocolate</h4>
-                <p>A flaky layered pastry, filled with rich dark chocolate.</p>
-                <div class="d-flex justify-content-between flex-lg-wrap">
+                <p>Pastry berlapis renyah dengan isian cokelat hitam premium yang kaya akan rasa.</p>
+                <div class="mb-3">
+                  <small class="product-features">⭐ Terlaris | 🕒 Segar Harian | 🥐 Buatan Artisan</small>
+                </div>
+                <div class="d-flex justify-content-between flex-lg-wrap mb-2">
                   <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
-                  <a
-                    href="#"
-                    class="btn border border-secondary rounded-pill px-3 text-primary"
-                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                    cart</a
-                  >
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                  <button
+                    class="btn btn-luxury-secondary flex-fill"
+                    onclick="showProductDetail('Pain au Chocolate', 'img/pastry2.jpg', 'Rp 35.000', 'Pastry berlapis renyah dengan isian cokelat hitam premium yang kaya akan rasa. Dibuat dengan mentega Prancis berkualitas tinggi dan cokelat Belgian yang meleleh di mulut.', 'Pastry', 35000)"
+                    >
+                    <i class="fas fa-info-circle me-1"></i>Detail
+                  </button>
+                  <button
+                    class="btn btn-luxury-primary flex-fill add-to-cart-btn"
+                    data-product-name="Pain au Chocolate"
+                    data-product-image="img/pastry2.jpg"
+                    data-product-price="Rp 35.000"
+                    data-product-price-num="35000"
+                    >
+                    <i class="fa fa-shopping-bag me-1"></i>Tambah
+                  </button>
                 </div>
               </div>
             </div>
@@ -189,27 +275,38 @@
                 />
               </div>
               <div
-                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                class="text-white luxury-badge px-3 py-1 rounded position-absolute"
                 style="top: 10px; left: 10px"
               >
                 Pastry
               </div>
               <div
-                class="p-4 border border-primary border-top-0 rounded-bottom"
+                class="p-4 rounded-bottom" style="border: 2px solid var(--luxury-gold); border-top: none; background: rgba(245, 245, 220, 0.1);"
               >
                 <h4>Eclair</h4>
-                <p>
-                  A long, choux pastry filled with smooth vanila cream. Topped
-                  with chocolate.
-                </p>
-                <div class="d-flex justify-content-between flex-lg-wrap">
+                <p>Pastry choux panjang dengan isian krim vanilla halus, dilapisi cokelat glossy.</p>
+                <div class="mb-3">
+                  <small class="product-features">🍰 Klasik Prancis | 🥛 Isian Krim | ✨ Elegan</small>
+                </div>
+                <div class="d-flex justify-content-between flex-lg-wrap mb-2">
                   <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
-                  <a
-                    href="#"
-                    class="btn border border-secondary rounded-pill px-3 text-primary"
-                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                    cart</a
-                  >
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                  <button
+                    class="btn btn-luxury-secondary flex-fill"
+                    onclick="showProductDetail('Eclair', 'img/pastry3.jpg', 'Rp 35.000', 'Pastry choux panjang dengan isian krim vanilla halus yang lembut, dilapisi dengan cokelat glossy yang mengkilap. Tekstur luar yang renyah kontras dengan isian yang creamy.', 'Pastry', 35000)"
+                    >
+                    <i class="fas fa-info-circle me-1"></i>Detail
+                  </button>
+                  <button
+                    class="btn btn-luxury-primary flex-fill add-to-cart-btn"
+                    data-product-name="Eclair"
+                    data-product-image="img/pastry3.jpg"
+                    data-product-price="Rp 35.000"
+                    data-product-price-num="35000"
+                    >
+                    <i class="fa fa-shopping-bag me-1"></i>Tambah
+                  </button>
                 </div>
               </div>
             </div>
@@ -224,27 +321,38 @@
                 />
               </div>
               <div
-                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                class="text-white luxury-badge px-3 py-1 rounded position-absolute"
                 style="top: 10px; left: 10px"
               >
                 Pastry
               </div>
               <div
-                class="p-4 border border-primary border-top-0 rounded-bottom"
+                class="p-4 rounded-bottom" style="border: 2px solid var(--luxury-gold); border-top: none; background: rgba(245, 245, 220, 0.1);"
               >
                 <h4>Madeleines</h4>
-                <p>
-                  Small, shell-shaped sponge cakes with a light, buttery
-                  texture.
-                </p>
-                <div class="d-flex justify-content-between flex-lg-wrap">
+                <p>Kue spons kecil berbentuk kerang dengan tekstur ringan dan mentega aromatik.</p>
+                <div class="mb-3">
+                  <small class="product-features">🐚 Bentuk Kerang | 🧈 Beraroma Mentega | 🇫🇷 Tradisional</small>
+                </div>
+                <div class="d-flex justify-content-between flex-lg-wrap mb-2">
                   <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
-                  <a
-                    href="#"
-                    class="btn border border-secondary rounded-pill px-3 text-primary"
-                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                    cart</a
-                  >
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                  <button
+                    class="btn btn-luxury-secondary flex-fill"
+                    onclick="showProductDetail('Madeleines', 'img/pastry5.jpg', 'Rp 35.000', 'Kue spons kecil berbentuk kerang yang ikonik dengan tekstur yang lembut dan ringan. Diolah dengan mentega berkualitas tinggi yang memberikan aroma harum dan rasa yang tak terlupakan.', 'Pastry', 35000)"
+                    >
+                    <i class="fas fa-info-circle me-1"></i>Detail
+                  </button>
+                  <button
+                    class="btn btn-luxury-primary flex-fill add-to-cart-btn"
+                    data-product-name="Madeleines"
+                    data-product-image="img/pastry5.jpg"
+                    data-product-price="Rp 35.000"
+                    data-product-price-num="35000"
+                    >
+                    <i class="fa fa-shopping-bag me-1"></i>Tambah
+                  </button>
                 </div>
               </div>
             </div>
@@ -259,27 +367,38 @@
                 />
               </div>
               <div
-                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                class="text-white luxury-badge px-3 py-1 rounded position-absolute"
                 style="top: 10px; left: 10px"
               >
                 Pastry
               </div>
               <div
-                class="p-4 border border-primary border-top-0 rounded-bottom"
+                class="p-4 rounded-bottom" style="border: 2px solid var(--luxury-gold); border-top: none; background: rgba(245, 245, 220, 0.1);"
               >
                 <h4>Macarons</h4>
-                <p>
-                  A delicate, meringue-based cookie with a crisp shell and chewy
-                  center.
-                </p>
-                <div class="d-flex justify-content-between flex-lg-wrap">
+                <p>Kue berbasis meringue yang halus dengan cangkang renyah dan pusat kenyal.</p>
+                <div class="mb-3">
+                  <small class="text-muted">🌈 Colorful | 🍃 Delicate | 💫 Premium</small>
+                </div>
+                <div class="d-flex justify-content-between flex-lg-wrap mb-2">
                   <p class="text-dark fs-5 fw-bold mb-0">Rp 30.000</p>
-                  <a
-                    href="#"
-                    class="btn border border-secondary rounded-pill px-3 text-primary"
-                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                    cart</a
-                  >
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                  <button
+                    class="btn btn-luxury-secondary flex-fill"
+                    onclick="showProductDetail('Macarons', 'img/pastry4.jpg', 'Rp 30.000', 'Kue macarons yang elegan dengan berbagai pilihan rasa dan warna. Tekstur cangkang yang renyah di luar dan isian ganache yang lembut di tengah menciptakan kombinasi sempurna.', 'Pastry', 30000)"
+                    >
+                    <i class="fas fa-info-circle me-1"></i>Detail
+                  </button>
+                  <button
+                    class="btn btn-luxury-primary flex-fill add-to-cart-btn"
+                    data-product-name="Macarons"
+                    data-product-image="img/pastry4.jpg"
+                    data-product-price="Rp 30.000"
+                    data-product-price-num="30000"
+                    >
+                    <i class="fa fa-shopping-bag me-1"></i>Tambah
+                  </button>
                 </div>
               </div>
             </div>
@@ -294,27 +413,38 @@
                 />
               </div>
               <div
-                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                class="text-white luxury-badge px-3 py-1 rounded position-absolute"
                 style="top: 10px; left: 10px"
               >
                 Pastry
               </div>
               <div
-                class="p-4 border border-primary border-top-0 rounded-bottom"
+                class="p-4 rounded-bottom" style="border: 2px solid var(--luxury-gold); border-top: none; background: rgba(245, 245, 220, 0.1);"
               >
                 <h4>Canele</h4>
-                <p>
-                  A small pastry with a caramelized, crispy exterior and a soft,
-                  custardy center.
-                </p>
-                <div class="d-flex justify-content-between flex-lg-wrap">
+                <p>Pastry kecil dengan eksterior karamel renyah dan pusat custard yang lembut.</p>
+                <div class="mb-3">
+                  <small class="text-muted">🔥 Caramelized | 🥮 Custard | 🇫🇷 Bordeaux Style</small>
+                </div>
+                <div class="d-flex justify-content-between flex-lg-wrap mb-2">
                   <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
-                  <a
-                    href="#"
-                    class="btn border border-secondary rounded-pill px-3 text-primary"
-                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                    cart</a
-                  >
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                  <button
+                    class="btn btn-luxury-secondary flex-fill"
+                    onclick="showProductDetail('Canele', 'img/pastry6.jpg', 'Rp 35.000', 'Specialitas dari Bordeaux dengan cangkang karamel yang renyah kontras dengan interior custard yang creamy. Dibuat dengan rum dan vanilla untuk cita rasa yang autentik.', 'Pastry', 35000)"
+                    >
+                    <i class="fas fa-info-circle me-1"></i>Detail
+                  </button>
+                  <button
+                    class="btn btn-luxury-primary flex-fill add-to-cart-btn"
+                    data-product-name="Canele"
+                    data-product-image="img/pastry6.jpg"
+                    data-product-price="Rp 35.000"
+                    data-product-price-num="35000"
+                    >
+                    <i class="fa fa-shopping-bag me-1"></i>Tambah
+                  </button>
                 </div>
               </div>
             </div>
@@ -329,24 +459,38 @@
                 />
               </div>
               <div
-                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                class="text-white luxury-badge px-3 py-1 rounded position-absolute"
                 style="top: 10px; left: 10px"
               >
                 Pastry
               </div>
               <div
-                class="p-4 border border-primary border-top-0 rounded-bottom"
+                class="p-4 rounded-bottom" style="border: 2px solid var(--luxury-gold); border-top: none; background: rgba(245, 245, 220, 0.1);"
               >
                 <h4>Chausson aux Pommes</h4>
-                <p>A puff pastry turnover filled with stewed apples.</p>
-                <div class="d-flex justify-content-between flex-lg-wrap">
+                <p>Pastry puff berbentuk turnover dengan isian apel stew yang manis dan aromatik.</p>
+                <div class="mb-3">
+                  <small class="text-muted">🍎 Apple Filled | 🥐 Puff Pastry | 🍯 Sweet</small>
+                </div>
+                <div class="d-flex justify-content-between flex-lg-wrap mb-2">
                   <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
-                  <a
-                    href="#"
-                    class="btn border border-secondary rounded-pill px-3 text-primary"
-                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                    cart</a
-                  >
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                  <button
+                    class="btn btn-luxury-secondary flex-fill"
+                    onclick="showProductDetail('Chausson aux Pommes', 'img/pastry7.jpg', 'Rp 35.000', 'Pastry puff berbentuk turnover dengan isian apel yang dimasak perlahan dengan rempah-rempah, menciptakan rasa manis dan tekstur yang lembut di dalam pastry yang renyah.', 'Pastry', 35000)"
+                    >
+                    <i class="fas fa-info-circle me-1"></i>Detail
+                  </button>
+                  <button
+                    class="btn btn-luxury-primary flex-fill add-to-cart-btn"
+                    data-product-name="Chausson aux Pommes"
+                    data-product-image="img/pastry7.jpg"
+                    data-product-price="Rp 35.000"
+                    data-product-price-num="35000"
+                    >
+                    <i class="fa fa-shopping-bag me-1"></i>Tambah
+                  </button>
                 </div>
               </div>
             </div>
@@ -361,24 +505,38 @@
                 />
               </div>
               <div
-                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                class="text-white luxury-badge px-3 py-1 rounded position-absolute"
                 style="top: 10px; left: 10px"
               >
                 Pastry
               </div>
               <div
-                class="p-4 border border-primary border-top-0 rounded-bottom"
+                class="p-4 rounded-bottom" style="border: 2px solid var(--luxury-gold); border-top: none; background: rgba(245, 245, 220, 0.1);"
               >
                 <h4>Paris-Brest</h4>
-                <p>A ring-shaped choux pastry filled with praline cream.</p>
-                <div class="d-flex justify-content-between flex-lg-wrap">
+                <p>Pastry choux berbentuk cincin dengan isian krim praline yang kaya dan harum.</p>
+                <div class="mb-3">
+                  <small class="text-muted">🌰 Praline Cream | 🏆 Championship | ✨ Signature</small>
+                </div>
+                <div class="d-flex justify-content-between flex-lg-wrap mb-2">
                   <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
-                  <a
-                    href="#"
-                    class="btn border border-secondary rounded-pill px-3 text-primary"
-                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                    cart</a
-                  >
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                  <button
+                    class="btn btn-luxury-secondary flex-fill"
+                    onclick="showProductDetail('Paris-Brest', 'img/pastry8.jpg', 'Rp 35.000', 'Diciptakan untuk memperingati balapan sepeda Paris-Brest. Pastry choux berbentuk roda dengan isian krim praline yang terbuat dari kacang hazelnut yang dipanggang dengan sempurna.', 'Pastry', 35000)"
+                    >
+                    <i class="fas fa-info-circle me-1"></i>Detail
+                  </button>
+                  <button
+                    class="btn btn-luxury-primary flex-fill add-to-cart-btn"
+                    data-product-name="Paris-Brest"
+                    data-product-image="img/pastry8.jpg"
+                    data-product-price="Rp 35.000"
+                    data-product-price-num="35000"
+                    >
+                    <i class="fa fa-shopping-bag me-1"></i>Tambah
+                  </button>
                 </div>
               </div>
             </div>
@@ -398,24 +556,38 @@
                 />
               </div>
               <div
-                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                class="text-white luxury-badge px-3 py-1 rounded position-absolute"
                 style="top: 10px; left: 10px"
               >
                 Drink
               </div>
               <div
-                class="p-4 border border-primary border-top-0 rounded-bottom"
+                class="p-4 rounded-bottom" style="border: 2px solid var(--luxury-gold); border-top: none; background: rgba(245, 245, 220, 0.1);"
               >
                 <h4>Café au Lait</h4>
-                <p>Coffee base and warm milk, served in a large cup.</p>
-                <div class="d-flex justify-content-between flex-lg-wrap">
+                <p>Kopi berkualitas dengan susu hangat yang creamy, disajikan dalam cangkir besar.</p>
+                <div class="mb-3">
+                  <small class="text-muted">☕ Premium Coffee | 🥛 Fresh Milk | 🇫🇷 Classic</small>
+                </div>
+                <div class="d-flex justify-content-between flex-lg-wrap mb-2">
                   <p class="text-dark fs-5 fw-bold mb-0">Rp 35.000</p>
-                  <a
-                    href="#"
-                    class="btn border border-secondary rounded-pill px-3 text-primary"
-                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                    cart</a
-                  >
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                  <button
+                    class="btn btn-luxury-secondary flex-fill"
+                    onclick="showProductDetail('Café au Lait', 'img/drink1.jpg', 'Rp 35.000', 'Kopi Prancis klasik dengan perpaduan sempurna antara kopi robusta premium dan susu segar yang dipanaskan hingga suhu ideal. Cocok untuk memulai hari atau menemani pastry favorit Anda.', 'Drink', 35000)"
+                    >
+                    <i class="fas fa-info-circle me-1"></i>Detail
+                  </button>
+                  <button
+                    class="btn btn-luxury-primary flex-fill add-to-cart-btn"
+                    data-product-name="Café au Lait"
+                    data-product-image="img/drink1.jpg"
+                    data-product-price="Rp 35.000"
+                    data-product-price-num="35000"
+                    >
+                    <i class="fa fa-shopping-bag me-1"></i>Tambah
+                  </button>
                 </div>
               </div>
             </div>
@@ -430,24 +602,38 @@
                 />
               </div>
               <div
-                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                class="text-white luxury-badge px-3 py-1 rounded position-absolute"
                 style="top: 10px; left: 10px"
               >
                 Drink
               </div>
               <div
-                class="p-4 border border-primary border-top-0 rounded-bottom"
+                class="p-4 rounded-bottom" style="border: 2px solid var(--luxury-gold); border-top: none; background: rgba(245, 245, 220, 0.1);"
               >
                 <h4>Chocolat Chaud</h4>
-                <p>Hot chocolate made with dark chocolate and milk.</p>
-                <div class="d-flex justify-content-between flex-lg-wrap">
+                <p>Cokelat panas dengan dark chocolate premium dan susu segar yang kental.</p>
+                <div class="mb-3">
+                  <small class="text-muted">🍫 Dark Chocolate | 🔥 Hot & Rich | ❄️ Perfect for Winter</small>
+                </div>
+                <div class="d-flex justify-content-between flex-lg-wrap mb-2">
                   <p class="text-dark fs-5 fw-bold mb-0">Rp 40.000</p>
-                  <a
-                    href="#"
-                    class="btn border border-secondary rounded-pill px-3 text-primary"
-                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                    cart</a
-                  >
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                  <button
+                    class="btn btn-luxury-secondary flex-fill"
+                    onclick="showProductDetail('Chocolat Chaud', 'img/drink2.jpg', 'Rp 40.000', 'Minuman cokelat panas yang dibuat dari dark chocolate Belgian premium yang dilelehkan dengan susu segar, menciptakan tekstur yang kaya dan rasa yang mendalam. Sempurna untuk hari-hari dingin.', 'Drink', 40000)"
+                    >
+                    <i class="fas fa-info-circle me-1"></i>Detail
+                  </button>
+                  <button
+                    class="btn btn-luxury-primary flex-fill add-to-cart-btn"
+                    data-product-name="Chocolat Chaud"
+                    data-product-image="img/drink2.jpg"
+                    data-product-price="Rp 40.000"
+                    data-product-price-num="40000"
+                    >
+                    <i class="fa fa-shopping-bag me-1"></i>Tambah
+                  </button>
                 </div>
               </div>
             </div>
@@ -462,24 +648,38 @@
                 />
               </div>
               <div
-                class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                class="text-white luxury-badge px-3 py-1 rounded position-absolute"
                 style="top: 10px; left: 10px"
               >
                 Drink
               </div>
               <div
-                class="p-4 border border-primary border-top-0 rounded-bottom"
+                class="p-4 rounded-bottom" style="border: 2px solid var(--luxury-gold); border-top: none; background: rgba(245, 245, 220, 0.1);"
               >
                 <h4>Thé à la Menthe</h4>
-                <p>A refreshing aromatic green tea with fresh mint.</p>
-                <div class="d-flex justify-content-between flex-lg-wrap">
+                <p>Teh hijau aromatik yang menyegarkan dengan daun mint segar yang harum.</p>
+                <div class="mb-3">
+                  <small class="text-muted">🍃 Fresh Mint | 🫖 Green Tea | 🌿 Refreshing</small>
+                </div>
+                <div class="d-flex justify-content-between flex-lg-wrap mb-2">
                   <p class="text-dark fs-5 fw-bold mb-0">Rp 25.000</p>
-                  <a
-                    href="#"
-                    class="btn border border-secondary rounded-pill px-3 text-primary"
-                    ><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                    cart</a
-                  >
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                  <button
+                    class="btn btn-luxury-secondary flex-fill"
+                    onclick="showProductDetail('Thé à la Menthe', 'img/drink3.jpg', 'Rp 25.000', 'Teh hijau berkualitas tinggi yang diseduh dengan daun mint segar pilihan. Minuman ini memberikan sensasi menyegarkan dan aroma yang menenangkan, cocok untuk relaksasi atau pencernaan setelah makan.', 'Drink', 25000)"
+                    >
+                    <i class="fas fa-info-circle me-1"></i>Detail
+                  </button>
+                  <button
+                    class="btn btn-luxury-primary flex-fill add-to-cart-btn"
+                    data-product-name="Thé à la Menthe"
+                    data-product-image="img/drink3.jpg"
+                    data-product-price="Rp 25.000"
+                    data-product-price-num="25000"
+                    >
+                    <i class="fa fa-shopping-bag me-1"></i>Tambah
+                  </button>
                 </div>
               </div>
             </div>
@@ -490,103 +690,296 @@
     <!-- Fruits Shop End-->
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
-      <div class="container py-5">
-        <div
-          class="pb-4 mb-4"
-          style="border-bottom: 1px solid rgba(226, 175, 24, 0.5)"
-        >
-          <div class="row g-4">
-            <div class="col-lg-3">
-              <a href="#">
-                <h1 class="text-primary mb-0">Maison</h1>
-                <p class="text-secondary mb-0">du croissant</p>
-              </a>
+    <div class="container-fluid py-3" style="background: #1a1a1a; border-top: 1px solid var(--luxury-gold);">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-6 col-md-8">
+            <div class="footer-item">
+              <h1 class="mb-2" style="color: var(--luxury-gold); font-family: 'Playfair Display', serif;">Maison du Croissant</h1>
+              <p class="mb-0" style="color: var(--luxury-cream); opacity: 0.8; font-size: 1.1rem;">Artisan Bakery</p>
+              <p class="mt-3" style="color: var(--luxury-cream); line-height: 1.6;">
+                Spesialisasi dalam croissant mewah dengan bahan-bahan terbaik. 
+                Kami berkomitmen memberikan pengalaman kuliner yang elegan 
+                melalui sentuhan unik pada setiap produk kami.
+              </p>
             </div>
-            <div class="col-lg-9">
-              <div class="d-flex justify-content-end pt-3">
+          </div>
+          <div class="col-lg-6 col-md-4">
+            <div class="footer-item">
+              <h4 class="mb-3" style="color: #faf8f5 !important; font-weight: 600;">Kontak</h4>
+              <p class="mb-2" style="color: var(--luxury-cream);"><i class="fas fa-map-marker-alt me-2" style="color: var(--luxury-gold);"></i>Pondok Cina, Beji, Depok City, West Java</p>
+              <p class="mb-2" style="color: var(--luxury-cream);"><i class="fas fa-envelope me-2" style="color: var(--luxury-gold);"></i>info@maisoncroissant.id</p>
+              <p class="mb-3" style="color: var(--luxury-cream);"><i class="fas fa-phone me-2" style="color: var(--luxury-gold);"></i>089629749277</p>
+              
+              <div class="mt-3">
                 <a
-                  class="btn btn-outline-secondary btn-md-square rounded-circle"
-                  href="https://instagram.com/kairyyy30"
-                  ><i class="fab fa-instagram"></i
-                ></a>
+                  class="btn btn-md-square rounded-circle me-2"
+                  style="border: 2px solid var(--luxury-gold); color: var(--luxury-gold); width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;"
+                  href="#"
+                  title="Instagram"
+                  ><i class="fab fa-instagram"></i></a>
+                <a
+                  class="btn btn-md-square rounded-circle me-2"
+                  style="border: 2px solid var(--luxury-gold); color: var(--luxury-gold); width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;"
+                  href="#"
+                  title="WhatsApp"
+                  ><i class="fab fa-whatsapp"></i></a>
+                <a
+                  class="btn btn-md-square rounded-circle"
+                  style="border: 2px solid var(--luxury-gold); color: var(--luxury-gold); width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;"
+                  href="#"
+                  title="Email"
+                  ><i class="fas fa-envelope"></i></a>
               </div>
             </div>
           </div>
         </div>
-        <div class="row g-5">
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-item">
-              <h4 class="text-white mb-3">About us!</h4>
-              <p class="mb-4 text-white">
-                Maison du croissant, spesialisasi dalam croissant mewah dengan
-                bahan-bahan terbaik. Kami berkomitmen untuk memberikan
-                pengalaman kuliner yang elegan melalui sentuhan unik pada setiap
-                produk kami.
-              </p>
-            </div>
+        
+        <!-- Copyright Section within Footer -->
+        <div class="row border-top mt-3 pt-3" style="border-color: var(--luxury-gold) !important;">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <span style="color: var(--luxury-cream);"
+              ><a href="#" style="color: var(--luxury-gold); text-decoration: none;"
+                ><i class="fas fa-copyright me-2" style="color: var(--luxury-gold);"></i>Maison du
+                Croissant</a
+              >, All right reserved.</span
+            >
           </div>
-          <div class="col-lg-3">
-            <img
-              src="img/ambayug1.jpeg"
-              class="img-fluid w-100 rounded"
-              alt="ambayugi"
-            />
-          </div>
-          <div class="col-lg-3">
-            <img
-              src="img/ambayug1.jpeg"
-              class="img-fluid w-100 rounded"
-              alt="ambayugi"
-            />
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-item">
-              <h4 class="text-light mb-3">Contact</h4>
-              <p>Address: Pondok Cina, Beji, Depok City, West Java.</p>
-              <p>Email: ambayug@gmail.com</p>
-              <p>Phone: +62 823 8929 6775 (ini ngasal)</p>
-            </div>
+          <div class="col-md-6 my-auto text-center text-md-end">
+            <!-- Designer credit removed -->
           </div>
         </div>
       </div>
     </div>
     <!-- Footer End -->
 
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright bg-dark py-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-            <span class="text-light"
-              ><a href="#" class="text-white"
-                ><i class="fas fa-copyright text-light me-2"></i>Masion du
-                Croissant</a
-              >, All right reserved.</span
-            >
-          </div>
-          <div class="col-md-6 my-auto text-center text-md-end text-white">
+    <!-- Modal Konfirmasi Pembelian -->
+
+          <div class="col-md-6 my-auto text-center text-md-end">
             <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
             <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
             <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-            Designed By&nbsp;
-            <a
-              class="border-secondary border px-3 fw-bold text-white"
-              href="https://umkmmekarsari.tcugapps.com/profileorangganteng"
-              >;P</a
-            >
+            <!-- Designer credit removed -->
           </div>
         </div>
       </div>
     </div>
-    <!-- Copyright End -->
 
-    <!-- Back to Top -->
-    <a
-      href="cart.html"
-      class="btn btn-primary border border-secondary rounded-pill back-to-top text-white"
-      >Open Cart<i class="fas fa-shopping-cart"></i
-    ></a>
+
+    <!-- Modal Konfirmasi Pembelian -->
+    <div
+      class="modal fade"
+      id="confirmPurchaseModal"
+      tabindex="-1"
+      aria-labelledby="confirmPurchaseModalLabel"
+      aria-hidden="true"
+      style="z-index: 1055;"
+    >
+      <div class="modal-dialog modal-dialog-centered" style="margin: 1.75rem auto; max-width: 500px;">
+        <div class="modal-content">
+          <div class="modal-header luxury-badge">
+            <h5 class="modal-title text-white" id="confirmPurchaseModalLabel">
+              <i class="fas fa-shopping-cart me-2"></i>Konfirmasi Pembelian
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center mb-3">
+              <img
+                id="confirmProductImage"
+                src=""
+                class="img-fluid rounded"
+                style="width: 100px; height: 100px; object-fit: cover"
+                alt=""
+              />
+            </div>
+            <h5 class="text-center mb-3" id="confirmProductName"></h5>
+            <div class="row">
+              <div class="col-6">
+                <p><strong>Harga:</strong></p>
+              </div>
+              <div class="col-6">
+                <p id="confirmProductPrice"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <p><strong>Jumlah:</strong></p>
+              </div>
+              <div class="col-6">
+                <div class="input-group" style="width: 120px">
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="decreaseQuantity"
+                  >
+                    -
+                  </button>
+                  <input
+                    type="text"
+                    class="form-control text-center"
+                    id="quantityInput"
+                    value="1"
+                    readonly
+                  />
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="increaseQuantity"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-6">
+                <p><strong>Total:</strong></p>
+              </div>
+              <div class="col-6">
+                <p class="fw-bold" style="color: var(--luxury-gold); font-weight: 700;" id="confirmTotalPrice"></p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Batal
+            </button>
+            <button
+              type="button"
+              class="btn btn-confirm"
+              id="addToCartConfirm"
+            >
+              <i class="fas fa-plus me-2"></i>Tambah ke Keranjang
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Detail Produk -->
+    <div
+      class="modal fade"
+      id="productDetailModal"
+      tabindex="-1"
+      aria-labelledby="productDetailModalLabel"
+      aria-hidden="true"
+      style="z-index: 1055;"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered" style="margin: 1.75rem auto; max-width: 800px;">
+        <div class="modal-content">
+          <div class="modal-header luxury-badge">
+            <h5 class="modal-title text-white" id="productDetailModalLabel">
+              <i class="fas fa-info-circle me-2"></i>Detail Produk
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <img
+                  id="detailProductImage"
+                  src=""
+                  class="img-fluid rounded w-100"
+                  alt=""
+                />
+              </div>
+              <div class="col-md-6">
+                <h4 id="detailProductName" class="mb-3"></h4>
+                <div class="mb-3">
+                  <span class="badge luxury-badge" id="detailProductCategory"></span>
+                </div>
+                <p class="fs-4 fw-bold mb-3" style="color: var(--luxury-gold); font-weight: 700;" id="detailProductPrice"></p>
+                <h6>Deskripsi:</h6>
+                <p id="detailProductDescription" class="mb-3"></p>
+                <h6>Informasi Nutrisi:</h6>
+                <div id="detailNutritionInfo" class="mb-3">
+                  <small class="text-muted"
+                    >Informasi nutrisi bervariasi tergantung ukuran porsi.</small
+                  >
+                </div>
+                <h6>Bahan-bahan:</h6>
+                <p id="detailIngredients" class="mb-3">
+                  <small class="text-muted"
+                    >Tepung terigu, mentega, telur, gula, ragi, garam</small
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Tutup
+            </button>
+            <button
+              type="button"
+              class="btn btn-luxury-primary"
+              id="addToCartFromDetail"
+            >
+              <i class="fas fa-shopping-cart me-2"></i>Tambah ke Keranjang
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Berhasil Ditambahkan -->
+    <div
+      class="modal fade"
+      id="successModal"
+      tabindex="-1"
+      aria-labelledby="successModalLabel"
+      aria-hidden="true"
+      style="z-index: 1055;"
+    >
+      <div class="modal-dialog modal-dialog-centered" style="margin: 1.75rem auto; max-width: 500px;">
+        <div class="modal-content">
+          <div class="modal-header bg-success">
+            <h5 class="modal-title text-white" id="successModalLabel">
+              <i class="fas fa-check-circle me-2"></i>Berhasil!
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-center">
+            <i
+              class="fas fa-check-circle text-success"
+              style="font-size: 3rem"
+            ></i>
+            <h5 class="mt-3">Produk berhasil ditambahkan ke keranjang!</h5>
+            <p class="text-muted">Anda dapat melanjutkan belanja atau melihat keranjang.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Lanjut Belanja
+            </button>
+            <a href="cart.html" class="btn btn-luxury-primary">
+              <i class="fas fa-shopping-cart me-2"></i>Lihat Keranjang
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart Button -->
+    <a href="cart.html" class="btn btn-luxury-primary back-to-top" title="Lihat Keranjang">
+      <i class="fas fa-shopping-cart"></i>
+    </a>
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -596,7 +989,17 @@
     <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
+    <!-- Admin Scripts -->
+    <script src="js/database.js"></script>
+    <script src="js/user-auth.js"></script>
+    <script src="js/user-navigation.js"></script>
+    <script src="js/dynamic-menu.js"></script>
+    <script src="js/admin.js"></script>
+    
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    
+    <!-- Cross-Device Compatibility Enhancement -->
+    <script src="js/cross-device-compatibility.js"></script>
   </body>
 </html>

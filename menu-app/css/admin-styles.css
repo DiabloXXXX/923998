@@ -1,0 +1,526 @@
+/* ==========================================================================
+   Admin Panel Styles - Maison du Croissant
+   Luxury-themed admin interface
+   ========================================================================== */
+
+/* ===== ADMIN BODY ===== */
+.admin-body {
+    background: #f8f9fa;
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 70px;
+}
+
+/* ===== ADMIN NAVBAR ===== */
+.admin-navbar {
+    background: linear-gradient(135deg, var(--luxury-black) 0%, #2c3e50 100%);
+    border-bottom: 3px solid var(--luxury-gold);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1050;
+}
+
+.admin-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--luxury-gold) !important;
+    text-decoration: none;
+}
+
+.admin-navbar .nav-link {
+    color: var(--luxury-cream) !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    margin: 0 5px;
+    padding: 8px 15px !important;
+}
+
+.admin-navbar .nav-link:hover {
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--luxury-gold) !important;
+}
+
+/* ===== ADMIN CONTAINER ===== */
+.admin-container {
+    display: flex;
+    min-height: calc(100vh - 70px);
+}
+
+/* ===== SIDEBAR ===== */
+.admin-sidebar {
+    width: 250px;
+    background: var(--luxury-cream);
+    border-right: 1px solid #e0e0e0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 70px;
+    left: 0;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    z-index: 1040;
+}
+
+.sidebar-menu {
+    padding: 20px 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--luxury-black);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.menu-item:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--luxury-gold);
+    border-left-color: var(--luxury-gold);
+}
+
+.menu-item.active {
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--luxury-gold);
+    border-left-color: var(--luxury-gold);
+    font-weight: 600;
+}
+
+.menu-item i {
+    font-size: 1.1rem;
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+}
+
+.menu-item span {
+    font-size: 0.95rem;
+}
+
+/* ===== MAIN CONTENT ===== */
+.admin-main-content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 30px;
+    background: #f8f9fa;
+    min-height: calc(100vh - 70px);
+}
+
+/* ===== SECTIONS ===== */
+.admin-section {
+    display: none;
+}
+
+.admin-section.active {
+    display: block;
+}
+
+.section-header {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--luxury-gold);
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--luxury-black);
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.section-header p {
+    color: #666;
+    margin: 5px 0 0 0;
+    font-size: 0.95rem;
+}
+
+.section-actions {
+    margin-left: auto;
+}
+
+/* ===== STATS CARDS ===== */
+.stats-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+}
+
+.stats-card .card-body {
+    padding: 1.5rem;
+}
+
+.stats-card .card-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+.stats-card h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.stats-icon {
+    font-size: 2.5rem;
+    opacity: 0.7;
+}
+
+/* ===== CARDS ===== */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+.card-header {
+    background: var(--luxury-cream);
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 12px 12px 0 0 !important;
+    padding: 1.2rem 1.5rem;
+}
+
+.card-title {
+    font-weight: 600;
+    color: var(--luxury-black);
+    margin: 0;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* ===== TABLES ===== */
+.table-luxury {
+    margin: 0;
+}
+
+.table-luxury thead th {
+    background: var(--luxury-gold);
+    color: var(--luxury-black);
+    font-weight: 600;
+    border: none;
+    padding: 12px 15px;
+    font-size: 0.9rem;
+}
+
+.table-luxury tbody td {
+    padding: 12px 15px;
+    vertical-align: middle;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.table-luxury tbody tr:hover {
+    background: rgba(212, 175, 55, 0.05);
+}
+
+/* ===== BUTTONS ===== */
+.btn-luxury-primary {
+    background: var(--luxury-gold);
+    border: 2px solid var(--luxury-gold);
+    color: var(--luxury-black);
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-luxury-primary:hover {
+    background: transparent;
+    color: var(--luxury-gold);
+    border-color: var(--luxury-gold);
+}
+
+.btn-luxury-secondary {
+    background: transparent;
+    border: 2px solid var(--luxury-gold);
+    color: var(--luxury-gold);
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-luxury-secondary:hover {
+    background: var(--luxury-gold);
+    color: var(--luxury-black);
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}
+
+/* ===== FORMS ===== */
+.form-control,
+.form-select {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--luxury-gold);
+    box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--luxury-black);
+    margin-bottom: 8px;
+}
+
+/* ===== STATUS BADGES ===== */
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-active {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-inactive {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-confirmed {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.status-completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* ===== MODAL IMPROVEMENTS ===== */
+.modal-content {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    background: var(--luxury-cream);
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 12px 12px 0 0;
+    padding: 1.2rem 1.5rem;
+}
+
+.modal-title {
+    font-weight: 600;
+    color: var(--luxury-black);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    border-top: 1px solid #e0e0e0;
+    padding: 1rem 1.5rem;
+}
+
+/* ===== IMAGE PREVIEW ===== */
+.image-preview {
+    max-width: 200px;
+    max-height: 150px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ===== POPULAR MENU LIST ===== */
+.popular-menu-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.popular-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.popular-menu-item:last-child {
+    border-bottom: none;
+}
+
+.popular-menu-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+}
+
+.popular-menu-info h6 {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.popular-menu-info small {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .admin-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+        box-shadow: none;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .admin-main-content {
+        margin-left: 0;
+        padding: 20px 15px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .section-actions {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .stats-card .card-body {
+        padding: 1rem;
+    }
+    
+    .stats-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .stats-icon {
+        font-size: 2rem;
+    }
+    
+    .table-responsive {
+        border-radius: 8px;
+    }
+    
+    .modal-dialog {
+        margin: 10px;
+        max-width: calc(100% - 20px);
+    }
+}
+
+@media (max-width: 576px) {
+    .admin-main-content {
+        padding: 15px 10px;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .btn {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+    }
+    
+    .form-control,
+    .form-select {
+        padding: 8px 12px;
+    }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.admin-section.active {
+    animation: fadeIn 0.5s ease;
+}
+
+/* ===== LOADING STATES ===== */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* ===== CHART CONTAINER ===== */
+#salesChart {
+    max-height: 400px;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.text-luxury-gold {
+    color: var(--luxury-gold) !important;
+}
+
+.text-luxury-black {
+    color: var(--luxury-black) !important;
+}
+
+.bg-luxury-gold {
+    background-color: var(--luxury-gold) !important;
+}
+
+.bg-luxury-cream {
+    background-color: var(--luxury-cream) !important;
+}
+
+.border-luxury-gold {
+    border-color: var(--luxury-gold) !important;
+}
