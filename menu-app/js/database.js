@@ -294,9 +294,9 @@ function initializeSettings() {
     const defaultSettings = {
         storeName: 'Maison du Croissant',
         storeAddress: 'Jl. Luxury Street No. 123, Jakarta',
-        storePhone: '+62 21 1234 5678',
+        storePhone: '089629749277',
         storeEmail: 'info@maisondicroissant.com',
-        whatsappNumber: '+6289629749277',
+        whatsappNumber: '6289629749277',
         taxRate: 10, // 10%
         deliveryFee: 15000,
         minOrderAmount: 50000,
@@ -750,7 +750,7 @@ function initializeSampleUsers() {
             email: 'customer1@example.com',
             password: 'password123',
             fullName: 'John Doe',
-            phone: '081234567890',
+            phone: '089629749277',
             address: 'Jl. Contoh No. 123, Jakarta',
             createdAt: '2024-01-15T08:00:00.000Z',
             lastLogin: '2024-06-29T10:30:00.000Z',
