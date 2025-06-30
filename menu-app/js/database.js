@@ -183,6 +183,72 @@ function initializeSampleMenus() {
             features: '🍓 Seasonal Fruits | 🍮 Custard Cream | 🥧 Crispy Base',
             image: 'img/pastry6.jpg',
             createdAt: new Date().toISOString()
+        },
+        {
+            id: 13,
+            name: 'Latte',
+            category: 'Coffee',
+            price: 35000,
+            status: 'active',
+            description: 'Minuman kopi dengan perpaduan espresso dan steamed milk yang creamy, dengan latte art yang indah.',
+            features: '☕ Smooth Espresso | 🥛 Creamy Milk | 🎨 Latte Art',
+            image: 'img/drink1.jpg',
+            createdAt: new Date().toISOString()
+        },
+        {
+            id: 14,
+            name: 'Hot Chocolate',
+            category: 'Drink',
+            price: 28000,
+            status: 'active',
+            description: 'Cokelat panas premium dengan dark chocolate Belgium, disajikan dengan whipped cream.',
+            features: '🍫 Belgium Chocolate | ☁️ Whipped Cream | 🔥 Served Hot',
+            image: 'img/drink2.jpg',
+            createdAt: new Date().toISOString()
+        },
+        {
+            id: 15,
+            name: 'French Toast',
+            category: 'Bread',
+            price: 45000,
+            status: 'active',
+            description: 'Roti tebal yang dicelup dalam custard dan dipanggang hingga golden, disajikan dengan maple syrup.',
+            features: '🍞 Thick Bread | 🥚 Rich Custard | 🍯 Maple Syrup',
+            image: 'img/best-product-1.jpg',
+            createdAt: new Date().toISOString()
+        },
+        {
+            id: 16,
+            name: 'Chocolate Cake',
+            category: 'Cake',
+            price: 65000,
+            status: 'active',
+            description: 'Kue cokelat berlapis dengan dark chocolate ganache dan hiasan berries segar.',
+            features: '🍫 Dark Chocolate | 🍓 Fresh Berries | ✨ Premium',
+            image: 'img/best-product-3.jpg',
+            createdAt: new Date().toISOString()
+        },
+        {
+            id: 17,
+            name: 'Iced Coffee',
+            category: 'Coffee',
+            price: 25000,
+            status: 'active',
+            description: 'Kopi dingin segar dengan es batu, perfect untuk cuaca panas.',
+            features: '❄️ Ice Cold | ☕ Strong Coffee | 🌿 Refreshing',
+            image: 'img/drink3.jpg',
+            createdAt: new Date().toISOString()
+        },
+        {
+            id: 18,
+            name: 'Lemon Tart',
+            category: 'Pastry',
+            price: 50000,
+            status: 'active',
+            description: 'Tart dengan filling lemon curd yang asam segar, topped dengan meringue yang lembut.',
+            features: '🍋 Fresh Lemon | ☁️ Soft Meringue | 🥧 Crispy Tart',
+            image: 'img/pastry7.jpg',
+            createdAt: new Date().toISOString()
         }
     ];
     

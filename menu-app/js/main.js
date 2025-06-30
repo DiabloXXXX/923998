@@ -198,7 +198,7 @@ function updateTotalPrice(priceNum) {
 
 // Fungsi untuk menambahkan produk ke local storage (simulasi keranjang)
 function addToCart(productData) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
     
     // Cek apakah produk sudah ada di keranjang
     const existingProductIndex = cart.findIndex(item => item.name === productData.name);
@@ -212,7 +212,7 @@ function addToCart(productData) {
     }
     
     // Simpan ke localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('cartItems', JSON.stringify(cart));
     
     // Tampilkan modal sukses
     const successModal = new bootstrap.Modal(document.getElementById('successModal'));
@@ -224,15 +224,15 @@ function addToCart(productData) {
 
 // Fungsi untuk mengupdate jumlah item di keranjang
 function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cart = JSON.parse(localStorage.getItem('cartItems')) || [];
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     
     // Update cart badge jika ada
-    const cartBadge = document.querySelector('.cart-count');
-    if (cartBadge) {
-        cartBadge.textContent = totalItems;
-        cartBadge.style.display = totalItems > 0 ? 'inline-block' : 'none';
-    }
+    const cartBadges = document.querySelectorAll('.cart-count');
+    cartBadges.forEach(badge => {
+        badge.textContent = totalItems;
+        badge.style.display = totalItems > 0 ? 'inline' : 'none';
+    });
 }
 
 // Event listeners untuk modal dan interaksi
@@ -322,4 +322,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Make functions globally available for debugging
+window.showConfirmPurchase = showConfirmPurchase;
+window.updateTotalPrice = updateTotalPrice;
+window.addToCart = addToCart;
+window.updateCartCount = updateCartCount;
 

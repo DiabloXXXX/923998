@@ -54,6 +54,9 @@ function loadDynamicMenus() {
         }
     });
     
+    // Setup event delegation for dynamically loaded add to cart buttons
+    setupAddToCartEventDelegation();
+    
     console.log('Dynamic menus loaded successfully');
 }
 
@@ -425,6 +428,38 @@ function updateFavoriteButton(menuId, isInFavorites) {
         
         const button = favoriteBtn.parentElement;
         button.title = isInFavorites ? 'Hapus dari favorit' : 'Tambah ke favorit';
+    }
+}
+
+/**
+ * Setup event delegation for add to cart buttons
+ */
+function setupAddToCartEventDelegation() {
+    // Remove existing event listeners to prevent duplicates
+    document.removeEventListener('click', handleAddToCartClick);
+    
+    // Add event delegation
+    document.addEventListener('click', handleAddToCartClick);
+}
+
+/**
+ * Handle add to cart button clicks with event delegation
+ */
+function handleAddToCartClick(event) {
+    if (event.target.closest('.add-to-cart-btn')) {
+        const button = event.target.closest('.add-to-cart-btn');
+        const name = button.getAttribute('data-product-name');
+        const image = button.getAttribute('data-product-image');
+        const price = button.getAttribute('data-product-price');
+        const priceNum = parseInt(button.getAttribute('data-product-price-num'));
+        
+        console.log('Add to cart clicked:', { name, image, price, priceNum });
+        
+        if (typeof showConfirmPurchase === 'function') {
+            showConfirmPurchase(name, image, price, priceNum);
+        } else {
+            console.error('showConfirmPurchase function not found');
+        }
     }
 }
 
