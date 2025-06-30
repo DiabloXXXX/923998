@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Test Debug - Maison du Croissant</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link href="css/luxury-theme.css" rel="stylesheet">
+    
+    <style>
+        body { 
+            background: var(--luxury-black); 
+            color: var(--luxury-cream); 
+            font-family: 'Playfair Display', serif;
+            padding: 20px;
+        }
+        .debug-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 1px solid var(--luxury-gold);
+        }
+        #userNav {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            min-height: 60px;
+            border: 2px solid var(--luxury-gold);
+        }
+        .btn-luxury {
+            background: var(--luxury-gold);
+            color: var(--luxury-black);
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        #debugLog {
+            background: #000;
+            color: #0f0;
+            padding: 15px;
+            border-radius: 8px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">
+            <i class="fas fa-bug text-warning"></i>
+            Login Debug Test
+        </h1>
+        
+        <div class="debug-section">
+            <h3><i class="fas fa-user-circle"></i> User Navigation Test</h3>
+            <div id="userNav">
+                <em>Navigation will appear here...</em>
+            </div>
+        </div>
+        
+        <div class="debug-section">
+            <h3><i class="fas fa-sign-in-alt"></i> Quick Login Test</h3>
+            <button class="btn btn-luxury" onclick="doTestLogin()">
+                <i class="fas fa-play"></i> Test Login (customer1)
+            </button>
+            <button class="btn btn-luxury" onclick="doTestLogout()">
+                <i class="fas fa-sign-out-alt"></i> Test Logout
+            </button>
+            <button class="btn btn-luxury" onclick="checkUserStatus()">
+                <i class="fas fa-search"></i> Check Status
+            </button>
+            <button class="btn btn-luxury" onclick="clearDebugLog()">
+                <i class="fas fa-eraser"></i> Clear Log
+            </button>
+        </div>
+        
+        <div class="debug-section">
+            <h3><i class="fas fa-terminal"></i> Debug Console</h3>
+            <div id="debugLog">
+                <div><strong>Debug Log Started...</strong></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/user-auth.js"></script>
+    <script src="js/user-navigation.js"></script>
+    
+    <script>
+        const debugLog = document.getElementById('debugLog');
+        
+        // Override console.log to show in debug log
+        const originalLog = console.log;
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.innerHTML = `<span style="color: #666">[${timestamp}]</span> ${args.join(' ')}`;
+            debugLog.appendChild(logEntry);
+            debugLog.scrollTop = debugLog.scrollHeight;
+        };
+        
+        function clearDebugLog() {
+            debugLog.innerHTML = '<div><strong>Debug Log Cleared...</strong></div>';
+        }
+        
+        function doTestLogin() {
+            console.log('=== STARTING TEST LOGIN ===');
+            
+            // First check if database is initialized
+            if (typeof initializeDatabase === 'function') {
+                console.log('Initializing database...');
+                initializeDatabase();
+            }
+            
+            // Test login
+            console.log('Attempting login with customer1/password123');
+            const result = UserAuth.login({
+                username: 'customer1',
+                password: 'password123'
+            });
+            
+            console.log('Login result:', JSON.stringify(result));
+            
+            if (result.success) {
+                console.log('Login successful, setting user session...');
+                UserAuth.setCurrentUser(result.user, false);
+                
+                console.log('Dispatching user auth event...');
+                const event = new CustomEvent('userAuthChange', {
+                    detail: {
+                        type: 'login',
+                        user: result.user
+                    }
+                });
+                document.dispatchEvent(event);
+                
+                console.log('Updating navigation...');
+                setTimeout(() => {
+                    updateUserNavigation();
+                }, 100);
+                
+                console.log('=== LOGIN TEST COMPLETE ===');
+            } else {
+                console.log('Login failed:', result.message);
+            }
+        }
+        
+        function doTestLogout() {
+            console.log('=== STARTING TEST LOGOUT ===');
+            UserAuth.logout();
+            
+            const event = new CustomEvent('userAuthChange', {
+                detail: {
+                    type: 'logout',
+                    user: null
+                }
+            });
+            document.dispatchEvent(event);
+            
+            setTimeout(() => {
+                updateUserNavigation();
+            }, 100);
+            
+            console.log('=== LOGOUT TEST COMPLETE ===');
+        }
+        
+        function checkUserStatus() {
+            console.log('=== CHECKING USER STATUS ===');
+            console.log('UserAuth.isLoggedIn():', UserAuth.isLoggedIn());
+            console.log('UserAuth.getCurrentUser():', UserAuth.getCurrentUser());
+            console.log('localStorage user_logged_in:', localStorage.getItem('user_logged_in'));
+            console.log('sessionStorage user_logged_in:', sessionStorage.getItem('user_logged_in'));
+            console.log('localStorage current_user:', localStorage.getItem('current_user'));
+            console.log('sessionStorage current_user:', sessionStorage.getItem('current_user'));
+            console.log('=== STATUS CHECK COMPLETE ===');
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, initializing...');
+            
+            // Initialize database
+            if (typeof initializeDatabase === 'function') {
+                initializeDatabase();
+            }
+            
+            // Initial navigation update
+            setTimeout(() => {
+                console.log('Initial navigation update...');
+                updateUserNavigation();
+            }, 500);
+        });
+        
+        // Listen for auth events
+        document.addEventListener('userAuthChange', function(e) {
+            console.log('User auth event received:', e.detail.type, e.detail.user);
+        });
+    </script>
+</body>
+</html>

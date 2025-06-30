@@ -120,15 +120,20 @@ function handleLoginForm(form) {
                 // Set user session
                 UserAuth.setCurrentUser(result.user, rememberMe);
                 
-                // Dispatch login event
+                // Dispatch login event and wait for navigation update
                 dispatchUserAuthEvent('login', result.user);
+                
+                // Force update navigation immediately
+                if (typeof updateUserNavigation === 'function') {
+                    updateUserNavigation();
+                }
                 
                 showAlert(alertContainer, result.message + ' Mengarahkan ke menu...', 'success');
                 
-                // Redirect to menu page after 1.5 seconds
+                // Redirect to menu page after longer delay to ensure navigation updates
                 setTimeout(() => {
                     window.location.href = 'menu.html';
-                }, 1500);
+                }, 2000);
             } else {
                 showAlert(alertContainer, result.message, 'error');
                 hideButtonLoading(submitBtn, 'Masuk');
@@ -251,13 +256,6 @@ function showLoggedInState() {
                     <i class="fas fa-user me-2"></i>${currentUser.fullName}
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#" onclick="showProfile()">
-                        <i class="fas fa-user-circle me-2"></i>Profile
-                    </a></li>
-                    <li><a class="dropdown-item" href="#" onclick="showOrders()">
-                        <i class="fas fa-shopping-bag me-2"></i>Pesanan Saya
-                    </a></li>
-                    <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="#" onclick="logout()">
                         <i class="fas fa-sign-out-alt me-2"></i>Logout
                     </a></li>

@@ -37,6 +37,9 @@ document.addEventListener('userAuthChange', function(e) {
 function updateUserNavigation() {
     console.log('updateUserNavigation called');
     
+    // Add dropdown styles
+    addDropdownStyles();
+    
     const userNavElement = document.getElementById('userNav');
     
     if (!userNavElement) {
@@ -46,35 +49,31 @@ function updateUserNavigation() {
     
     // Check if user is logged in
     const isLoggedIn = UserAuth && UserAuth.isLoggedIn && UserAuth.isLoggedIn();
-    console.log('User logged in:', isLoggedIn);
+    console.log('User logged in status:', isLoggedIn);
     
     if (isLoggedIn) {
         const currentUser = UserAuth.getCurrentUser();
-        console.log('Current user:', currentUser);
+        console.log('Current user data:', currentUser);
         
         if (currentUser) {
+            console.log('Showing user profile for:', currentUser.fullName || currentUser.username);
             // Show ONLY user name with dropdown - NO login/register buttons
             userNavElement.innerHTML = `
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" 
-                       style="color: var(--luxury-gold); font-weight: 600; display: flex; align-items: center;">
+                    <a class="nav-link dropdown-toggle user-profile-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-user-circle me-2"></i>
                         ${currentUser.fullName || currentUser.username}
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#" onclick="showProfile()">
-                            <i class="fas fa-user me-2"></i>Profile
-                        </a></li>
-                        <li><a class="dropdown-item" href="#" onclick="showOrders()">
-                            <i class="fas fa-shopping-bag me-2"></i>Pesanan Saya
-                        </a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#" onclick="logoutUser()">
+                    <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu">
+                        <li><a class="dropdown-item user-logout-item" href="#" onclick="logoutUser()">
                             <i class="fas fa-sign-out-alt me-2"></i>Logout
                         </a></li>
                     </ul>
                 </div>
             `;
+            console.log('User navigation HTML updated');
+        } else {
+            console.log('Current user is null');
         }
     } else {
         // Show ONLY guest navigation (Login & Register buttons) - NO user name
@@ -89,6 +88,7 @@ function updateUserNavigation() {
                 </a>
             </div>
         `;
+        console.log('Guest navigation HTML updated');
     }
 }
 
@@ -539,6 +539,79 @@ function removeFavorite(menuId) {
     showToast('Menu dihapus dari favorit', 'info');
 }
 
+/**
+ * Add dropdown menu styles for better visibility
+ */
+function addDropdownStyles() {
+    if (!document.getElementById('user-dropdown-styles')) {
+        const style = document.createElement('style');
+        style.id = 'user-dropdown-styles';
+        style.textContent = `
+            /* User Profile Link Styling */
+            .user-profile-link {
+                color: var(--luxury-gold) !important;
+                font-weight: 600 !important;
+                display: flex !important;
+                align-items: center !important;
+                text-decoration: none !important;
+                padding: 8px 15px !important;
+                border-radius: 25px !important;
+                transition: all 0.3s ease !important;
+                background: rgba(212, 175, 55, 0.1) !important;
+                border: 1px solid var(--luxury-gold) !important;
+            }
+            
+            .user-profile-link:hover {
+                background: var(--luxury-gold) !important;
+                color: var(--luxury-black) !important;
+                transform: translateY(-1px) !important;
+                box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3) !important;
+            }
+            
+            .user-profile-link i {
+                font-size: 18px !important;
+                color: inherit !important;
+            }
+            
+            /* Dropdown Menu Styling */
+            .user-dropdown-menu {
+                background: white !important;
+                border: 2px solid var(--luxury-gold) !important;
+                border-radius: 8px !important;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.3) !important;
+                min-width: 160px !important;
+                padding: 8px 0 !important;
+                margin-top: 8px !important;
+            }
+            
+            .user-logout-item {
+                color: #333 !important;
+                font-weight: 500 !important;
+                padding: 12px 20px !important;
+                transition: all 0.3s ease !important;
+                display: flex !important;
+                align-items: center !important;
+            }
+            
+            .user-logout-item:hover {
+                background: #dc3545 !important;
+                color: white !important;
+            }
+            
+            .user-logout-item i {
+                color: #dc3545 !important;
+                width: 20px !important;
+                font-size: 16px !important;
+            }
+            
+            .user-logout-item:hover i {
+                color: white !important;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
 // Export functions for global use
 window.updateUserNavigation = updateUserNavigation;
 window.updateCartCount = updateCartCount;
@@ -549,3 +622,4 @@ window.showOrders = showOrders;
 window.showFavorites = showFavorites;
 window.removeFavorite = removeFavorite;
 window.showToast = showToast;
+addDropdownStyles();

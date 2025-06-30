@@ -612,18 +612,23 @@ const UserAuth = {
      * Get current logged in user
      */
     getCurrentUser: function() {
-        const userData = localStorage.getItem('current_user');
-        return userData ? JSON.parse(userData) : null;
+        let userData = localStorage.getItem('current_user') || sessionStorage.getItem('current_user');
+        console.log('Getting current user from storage:', userData);
+        const user = userData ? JSON.parse(userData) : null;
+        console.log('Parsed user:', user);
+        return user;
     },
     
     /**
      * Set current user session
      */
     setCurrentUser: function(user, rememberMe = false) {
+        console.log('Setting current user:', user, 'rememberMe:', rememberMe);
         const storage = rememberMe ? localStorage : sessionStorage;
         storage.setItem('current_user', JSON.stringify(user));
         storage.setItem('user_logged_in', 'true');
         storage.setItem('user_login_time', new Date().toISOString());
+        console.log('User session saved to:', rememberMe ? 'localStorage' : 'sessionStorage');
     },
     
     /**
@@ -642,8 +647,10 @@ const UserAuth = {
      * Check if user is logged in
      */
     isLoggedIn: function() {
-        return localStorage.getItem('user_logged_in') === 'true' || 
-               sessionStorage.getItem('user_logged_in') === 'true';
+        const loginStatus = localStorage.getItem('user_logged_in') === 'true' || 
+                           sessionStorage.getItem('user_logged_in') === 'true';
+        console.log('Checking login status:', loginStatus);
+        return loginStatus;
     },
     
     /**
