@@ -43,148 +43,218 @@
     <!-- Luxury Theme -->    
     <link href="css/luxury-theme.css" rel="stylesheet" />
     
-    <!-- Nepcha Analytics (nepcha.com) -->
-    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
-    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+    
+    <!-- Additional Styles -->
+    <style>
+        body {
+            background: linear-gradient(135deg, var(--luxury-black) 0%, #2c3e50 50%, var(--luxury-black) 100%);
+            min-height: 100vh;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            max-width: 900px;
+            width: 100%;
+            margin: 20px;
+        }
+
+        .login-left {
+            background: linear-gradient(135deg, var(--luxury-gold) 0%, #f4d03f 100%);
+            padding: 60px 40px;
+            color: var(--luxury-black);
+            text-align: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('img/pastry1.jpg') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .login-left-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .login-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--luxury-black);
+        }
+
+        .login-right {
+            padding: 60px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-form {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        @media (max-width: 991px) {
+            .login-left {
+                padding: 40px 20px;
+            }
+            .login-right {
+                padding: 40px 20px;
+            }
+            .login-logo {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 
-<body class="">
-    <!-- Navbar -->
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-12 col-md-10 col-lg-8 col-xl-6">
+                <div class="login-container">
+                    <div class="row g-0">
+                        <!-- Left Side - Welcome Section -->
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <div class="login-left">
+                                <div class="login-left-content">
+                                    <div class="login-logo">
+                                        <i class="fas fa-bread-slice me-2"></i>
+                                        Maison du Croissant
+                                    </div>
+                                    <p class="mb-4" style="font-size: 1.1rem; opacity: 0.9;">
+                                        Selamat datang kembali! Masuk untuk melanjutkan pengalaman kuliner premium Anda.
+                                    </p>
+                                    <div class="text-start">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <i class="fas fa-crown me-3" style="font-size: 1.2rem;"></i>
+                                            <span>Produk Premium</span>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <i class="fas fa-heart me-3" style="font-size: 1.2rem;"></i>
+                                            <span>Kualitas Terjamin</span>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-shipping-fast me-3" style="font-size: 1.2rem;"></i>
+                                            <span>Pengiriman Cepat</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-    <!-- End Navbar -->
-    <main class="main-content  mt-0">
-        <section class="min-vh-100 mb-8">
-            <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
-                style="background-image: url('./assets/img/curved-images/curved13.jpg');">
-                <span class="mask bg-gradient-dark opacity-0"></span>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-5 text-center mx-auto">
-                            <h1 class="text-white mb-2 mt-5">Selamat Datang Admin!</h1>
-                            <p class="text-lead text-white">Masukkan Email dan Password untuk login.</p>
+                        <!-- Right Side - Login Form -->
+                        <div class="col-lg-6 col-12">
+                            <div class="login-right">
+                                <div class="login-form">
+                                    <!-- Mobile Logo -->
+                                    <div class="text-center mb-4 d-lg-none">
+                                        <h3 style="font-family: 'Playfair Display', serif; color: var(--luxury-black);">
+                                            <i class="fas fa-bread-slice me-2" style="color: var(--luxury-gold);"></i>
+                                            Maison du Croissant
+                                        </h3>
+                                    </div>
+
+                                    <h4 class="text-center mb-4" style="color: var(--luxury-black); font-weight: 600;">
+                                        Masuk ke Akun Anda
+                                    </h4>
+
+                                    <!-- Alert Container -->
+                                    <div id="loginAlert" style="display: none;"></div>
+                                    
+                                    <form id="loginForm">
+                                        <div class="mb-3">
+                                            <label class="form-label" style="color: var(--luxury-black); font-weight: 500;">Username atau Email</label>
+                                            <input type="text" name="username" class="form-control" placeholder="Masukkan username atau email" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label class="form-label" style="color: var(--luxury-black); font-weight: 500;">Password</label>
+                                            <input type="password" name="password" class="form-control" placeholder="Masukkan password" required>
+                                        </div>
+                                        
+                                        <!-- Remember Me & Forgot Password -->
+                                        <div class="d-flex justify-content-between align-items-center mb-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe">
+                                                <label class="form-check-label" for="rememberMe" style="font-size: 0.9rem;">
+                                                    Ingat saya
+                                                </label>
+                                            </div>
+                                            <a href="#" class="text-decoration-none" style="color: var(--luxury-gold); font-size: 0.9rem;">
+                                                Lupa password?
+                                            </a>
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-luxury w-100 mb-3" style="padding: 12px;">
+                                            Masuk
+                                        </button>
+                                        
+                                        <p class="text-center mb-0" style="font-size: 0.9rem;">
+                                            Belum punya akun? 
+                                            <a href="register.html" class="text-decoration-none" style="color: var(--luxury-gold); font-weight: 600;">
+                                                Daftar Sekarang
+                                            </a>
+                                        </p>
+                                        
+                                        <!-- Admin Login Link -->
+                                        <div class="text-center mt-3 pt-3" style="border-top: 1px solid #eee;">
+                                            <small style="color: #666;">
+                                                <i class="fas fa-shield-alt me-1"></i>
+                                                <a href="admin-login.html" class="text-decoration-none" style="color: var(--luxury-gold); font-size: 0.85rem;">
+                                                    Admin Login
+                                                </a>
+                                            </small>
+                                        </div>
+                                    </form>
+                                    
+                                    <!-- Demo Credentials Info -->
+                                    <div class="mt-4 p-3" style="background: rgba(212, 175, 55, 0.1); border-radius: 12px; border-left: 4px solid var(--luxury-gold);">
+                                        <h6 style="color: var(--luxury-black); margin-bottom: 10px; font-size: 0.9rem;">
+                                            <i class="fas fa-info-circle me-2"></i>Demo Login Customer
+                                        </h6>
+                                        <small style="color: #666; font-size: 0.8rem;">
+                                            <strong>Username:</strong> customer1<br>
+                                            <strong>Password:</strong> password123<br>
+                                            <em>Tekan Ctrl+U untuk auto-fill</em>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="row mt-lg-n10 mt-md-n11 mt-n10">
-                    <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
-                        <div class="card z-index-0">
-                            <div class="card-header text-center pt-4">
-                                <h5>Login</h5>
-                            </div>
-
-                            <div class="card-body">
-                                <form role="form text-left">
-                                    <label>Email</label>
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" placeholder="Email">
-                                    </div>
-                                    <label>Password</label>
-                                    <div class="mb-3">
-                                        <input type="password" class="form-control" placeholder="Password"
-                                            aria-label="Password">
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="button"
-                                            class="btn bg-gradient-salman w-100 my-4 mb-2 text-white">Login</button>
-                                    </div>
-                                    <p class="text-sm mt-3 mb-0">Belum punya akun? <a href="register.html"
-                                            class="text-dark font-weight-bolder">Buat Akun</a></p>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Footer Start -->
-        <div class="container-fluid py-3" style="background: #1a1a1a; border-top: 1px solid var(--luxury-gold);">
-          <div class="container">
-            <div class="row g-4">
-              <div class="col-lg-6 col-md-8">
-                <div class="footer-item">
-                  <h1 class="mb-2" style="color: var(--luxury-gold); font-family: 'Playfair Display', serif;">Maison du Croissant</h1>
-                  <p class="mb-0" style="color: var(--luxury-cream); opacity: 0.8; font-size: 1.1rem;">Artisan Bakery</p>
-                  <p class="mt-3" style="color: var(--luxury-cream); line-height: 1.6;">
-                    Spesialisasi dalam croissant mewah dengan bahan-bahan terbaik. 
-                    Kami berkomitmen memberikan pengalaman kuliner yang elegan 
-                    melalui sentuhan unik pada setiap produk kami.
-                  </p>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-4">
-                <div class="footer-item">
-                  <h4 class="mb-3" style="color: #faf8f5 !important; font-weight: 600;">Kontak</h4>
-                  <p class="mb-2" style="color: var(--luxury-cream);"><i class="fas fa-map-marker-alt me-2" style="color: var(--luxury-gold);"></i>Pondok Cina, Beji, Depok City, West Java</p>
-                  <p class="mb-2" style="color: var(--luxury-cream);"><i class="fas fa-envelope me-2" style="color: var(--luxury-gold);"></i>info@maisoncroissant.id</p>
-                  <p class="mb-3" style="color: var(--luxury-cream);"><i class="fas fa-phone me-2" style="color: var(--luxury-gold);"></i>+62 823 8929 6775</p>
-                  
-                  <div class="mt-3">
-                    <a
-                      class="btn btn-md-square rounded-circle me-2"
-                      style="border: 2px solid var(--luxury-gold); color: var(--luxury-gold); width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;"
-                      href="#"
-                      title="Instagram"
-                      ><i class="fab fa-instagram"></i></a>
-                    <a
-                      class="btn btn-md-square rounded-circle me-2"
-                      style="border: 2px solid var(--luxury-gold); color: var(--luxury-gold); width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;"
-                      href="#"
-                      title="WhatsApp"
-                      ><i class="fab fa-whatsapp"></i></a>
-                    <a
-                      class="btn btn-md-square rounded-circle"
-                      style="border: 2px solid var(--luxury-gold); color: var(--luxury-gold); width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;"
-                      href="#"
-                      title="Email"
-                      ><i class="fas fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Copyright Section within Footer -->
-            <div class="row border-top mt-3 pt-3" style="border-color: var(--luxury-gold) !important;">
-              <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                <span style="color: var(--luxury-cream);"
-                  ><a href="#" style="color: var(--luxury-gold); text-decoration: none;"
-                    ><i class="fas fa-copyright me-2" style="color: var(--luxury-gold);"></i>Maison du
-                    Croissant</a
-                  >, All right reserved.</span
-                >
-              </div>
-              <div class="col-md-6 my-auto text-center text-md-end">
-                <span style="color: var(--luxury-cream);">Designed By&nbsp;
-                <a
-                  class="px-3 fw-bold"
-                  style="border: 2px solid var(--luxury-gold); color: var(--luxury-gold); text-decoration: none;"
-                  href="https://umkmmekarsari.tcugapps.com/profileorangganteng"
-                  >;P</a></span>
-              </div>
-            </div>
-          </div>
         </div>
-        <!-- Footer End -->
-    </main>
+    </div>
+
     <!--   Core JS Files   -->
     <script src="./assets/js/core/popper.min.js"></script>
     <script src="./assets/js/core/bootstrap.min.js"></script>
     <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
-            }
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
-    </script>
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="./assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+    
+    <!-- Database & User Authentication -->
+    <script src="js/database.js"></script>
+    <script src="js/user-auth.js"></script>
+    <script src="js/user-navigation.js"></script>
+    
     <!-- Cross-Device Compatibility -->
     <script src="js/cross-device-compatibility.js"></script>
 </body>

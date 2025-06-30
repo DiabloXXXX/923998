@@ -11,6 +11,7 @@ const DB_CONFIG = {
         menus: 'menus',
         orders: 'orders',
         customers: 'customers',
+        users: 'users', // Tambahan untuk user authentication
         settings: 'settings'
     }
 };
@@ -34,6 +35,9 @@ function initializeDatabase() {
         
         // Initialize settings
         initializeSettings();
+        
+        // Initialize sample users
+        initializeSampleUsers();
         
         // Mark as initialized
         localStorage.setItem(DB_CONFIG.prefix + 'initialized', 'true');
@@ -496,6 +500,275 @@ function setSetting(key, value) {
 }
 
 /**
+ * User authentication functions
+ */
+const UserAuth = {
+    /**
+     * Register new user
+     */
+    register: function(userData) {
+        try {
+            const users = this.getAllUsers();
+            
+            // Check if email already exists
+            if (users.some(user => user.email === userData.email)) {
+                return {
+                    success: false,
+                    message: 'Email sudah terdaftar'
+                };
+            }
+            
+            // Check if username already exists
+            if (users.some(user => user.username === userData.username)) {
+                return {
+                    success: false,
+                    message: 'Username sudah digunakan'
+                };
+            }
+            
+            // Create new user
+            const newUser = {
+                id: Date.now().toString(),
+                username: userData.username,
+                email: userData.email,
+                password: userData.password, // In production, this should be hashed
+                fullName: userData.fullName,
+                phone: userData.phone || '',
+                address: userData.address || '',
+                createdAt: new Date().toISOString(),
+                lastLogin: null,
+                isActive: true,
+                role: 'customer'
+            };
+            
+            users.push(newUser);
+            localStorage.setItem(DB_CONFIG.prefix + DB_CONFIG.tables.users, JSON.stringify(users));
+            
+            return {
+                success: true,
+                message: 'Registrasi berhasil',
+                user: {
+                    id: newUser.id,
+                    username: newUser.username,
+                    email: newUser.email,
+                    fullName: newUser.fullName
+                }
+            };
+        } catch (error) {
+            console.error('Registration error:', error);
+            return {
+                success: false,
+                message: 'Terjadi kesalahan sistem'
+            };
+        }
+    },
+    
+    /**
+     * Login user
+     */
+    login: function(credentials) {
+        try {
+            const users = this.getAllUsers();
+            const user = users.find(u => 
+                (u.username === credentials.username || u.email === credentials.username) &&
+                u.password === credentials.password &&
+                u.isActive
+            );
+            
+            if (user) {
+                // Update last login
+                user.lastLogin = new Date().toISOString();
+                localStorage.setItem(DB_CONFIG.prefix + DB_CONFIG.tables.users, JSON.stringify(users));
+                
+                return {
+                    success: true,
+                    message: 'Login berhasil',
+                    user: {
+                        id: user.id,
+                        username: user.username,
+                        email: user.email,
+                        fullName: user.fullName,
+                        phone: user.phone,
+                        address: user.address,
+                        role: user.role
+                    }
+                };
+            } else {
+                return {
+                    success: false,
+                    message: 'Username/email atau password salah'
+                };
+            }
+        } catch (error) {
+            console.error('Login error:', error);
+            return {
+                success: false,
+                message: 'Terjadi kesalahan sistem'
+            };
+        }
+    },
+    
+    /**
+     * Get current logged in user
+     */
+    getCurrentUser: function() {
+        const userData = localStorage.getItem('current_user');
+        return userData ? JSON.parse(userData) : null;
+    },
+    
+    /**
+     * Set current user session
+     */
+    setCurrentUser: function(user, rememberMe = false) {
+        const storage = rememberMe ? localStorage : sessionStorage;
+        storage.setItem('current_user', JSON.stringify(user));
+        storage.setItem('user_logged_in', 'true');
+        storage.setItem('user_login_time', new Date().toISOString());
+    },
+    
+    /**
+     * Logout user
+     */
+    logout: function() {
+        localStorage.removeItem('current_user');
+        sessionStorage.removeItem('current_user');
+        localStorage.removeItem('user_logged_in');
+        sessionStorage.removeItem('user_logged_in');
+        localStorage.removeItem('user_login_time');
+        sessionStorage.removeItem('user_login_time');
+    },
+    
+    /**
+     * Check if user is logged in
+     */
+    isLoggedIn: function() {
+        return localStorage.getItem('user_logged_in') === 'true' || 
+               sessionStorage.getItem('user_logged_in') === 'true';
+    },
+    
+    /**
+     * Get all users (admin only)
+     */
+    getAllUsers: function() {
+        const users = localStorage.getItem(DB_CONFIG.prefix + DB_CONFIG.tables.users);
+        return users ? JSON.parse(users) : [];
+    },
+    
+    /**
+     * Update user profile
+     */
+    updateProfile: function(userId, updateData) {
+        try {
+            const users = this.getAllUsers();
+            const userIndex = users.findIndex(u => u.id === userId);
+            
+            if (userIndex === -1) {
+                return {
+                    success: false,
+                    message: 'User tidak ditemukan'
+                };
+            }
+            
+            // Update user data
+            users[userIndex] = { ...users[userIndex], ...updateData };
+            localStorage.setItem(DB_CONFIG.prefix + DB_CONFIG.tables.users, JSON.stringify(users));
+            
+            // Update current user session if it's the same user
+            const currentUser = this.getCurrentUser();
+            if (currentUser && currentUser.id === userId) {
+                this.setCurrentUser(users[userIndex]);
+            }
+            
+            return {
+                success: true,
+                message: 'Profile berhasil diupdate',
+                user: users[userIndex]
+            };
+        } catch (error) {
+            console.error('Update profile error:', error);
+            return {
+                success: false,
+                message: 'Terjadi kesalahan sistem'
+            };
+        }
+    },
+    
+    /**
+     * Change password
+     */
+    changePassword: function(userId, oldPassword, newPassword) {
+        try {
+            const users = this.getAllUsers();
+            const user = users.find(u => u.id === userId);
+            
+            if (!user) {
+                return {
+                    success: false,
+                    message: 'User tidak ditemukan'
+                };
+            }
+            
+            if (user.password !== oldPassword) {
+                return {
+                    success: false,
+                    message: 'Password lama salah'
+                };
+            }
+            
+            user.password = newPassword;
+            localStorage.setItem(DB_CONFIG.prefix + DB_CONFIG.tables.users, JSON.stringify(users));
+            
+            return {
+                success: true,
+                message: 'Password berhasil diubah'
+            };
+        } catch (error) {
+            console.error('Change password error:', error);
+            return {
+                success: false,
+                message: 'Terjadi kesalahan sistem'
+            };
+        }
+    }
+};
+
+/**
+ * Initialize sample users
+ */
+function initializeSampleUsers() {
+    const sampleUsers = [
+        {
+            id: 'user_001',
+            username: 'customer1',
+            email: 'customer1@example.com',
+            password: 'password123',
+            fullName: 'John Doe',
+            phone: '081234567890',
+            address: 'Jl. Contoh No. 123, Jakarta',
+            createdAt: '2024-01-15T08:00:00.000Z',
+            lastLogin: '2024-06-29T10:30:00.000Z',
+            isActive: true,
+            role: 'customer'
+        },
+        {
+            id: 'user_002',
+            username: 'customer2',
+            email: 'customer2@example.com',
+            password: 'password123',
+            fullName: 'Jane Smith',
+            phone: '081234567891',
+            address: 'Jl. Contoh No. 456, Bandung',
+            createdAt: '2024-02-20T09:15:00.000Z',
+            lastLogin: '2024-06-28T14:20:00.000Z',
+            isActive: true,
+            role: 'customer'
+        }
+    ];
+    
+    localStorage.setItem(DB_CONFIG.prefix + DB_CONFIG.tables.users, JSON.stringify(sampleUsers));
+}
+
+/**
  * Database utility functions
  */
 function clearDatabase() {
@@ -583,5 +856,8 @@ window.DB = {
     exportDatabase,
     importDatabase,
     getDatabaseStats,
-    initializeDatabase
+    initializeDatabase,
+    
+    // User authentication functions
+    UserAuth
 };

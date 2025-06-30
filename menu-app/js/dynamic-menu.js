@@ -191,6 +191,11 @@ function createMenuCard(menu) {
     const formattedPrice = formatCurrency(menu.price);
     const features = menu.features || getDefaultFeatures(menu.category);
     
+    // Check if item is in favorites (only if user is logged in)
+    const currentUser = UserAuth && UserAuth.getCurrentUser();
+    const isInFavorites = currentUser ? checkIfInFavorites(menu.id, currentUser.id) : false;
+    const favoriteClass = isInFavorites ? 'fas text-danger' : 'far text-muted';
+    
     col.innerHTML = `
         <div class="rounded position-relative fruite-item">
             <div class="fruite-img">
@@ -199,6 +204,14 @@ function createMenuCard(menu) {
             <div class="text-white luxury-badge px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px">
                 ${menu.category}
             </div>
+            ${currentUser ? `
+                <button class="btn btn-sm p-0 position-absolute favorite-btn" 
+                    onclick="toggleFavorite(${menu.id})"
+                    title="${isInFavorites ? 'Hapus dari favorit' : 'Tambah ke favorit'}"
+                    style="top: 10px; right: 10px; background: rgba(255,255,255,0.9); border: none; border-radius: 50%; width: 35px; height: 35px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                    <i class="${favoriteClass} fa-heart"></i>
+                </button>
+            ` : ''}
             <div class="p-4 rounded-bottom" style="border: 2px solid var(--luxury-gold); border-top: none; background: rgba(245, 245, 220, 0.1);">
                 <h4>${menu.name}</h4>
                 <p>${menu.description}</p>
@@ -362,6 +375,59 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 200);
 });
 
+/**
+ * Check if menu item is in user's favorites
+ */
+function checkIfInFavorites(menuId, userId) {
+    const favoritesKey = `user_favorites_${userId}`;
+    const favorites = JSON.parse(localStorage.getItem(favoritesKey) || '[]');
+    return favorites.includes(menuId);
+}
+
+/**
+ * Toggle favorite status for a menu item
+ */
+function toggleFavorite(menuId) {
+    const currentUser = UserAuth && UserAuth.getCurrentUser();
+    if (!currentUser) {
+        showToast('Silakan login terlebih dahulu untuk menambah favorit', 'warning');
+        return;
+    }
+    
+    const favoritesKey = `user_favorites_${currentUser.id}`;
+    let favorites = JSON.parse(localStorage.getItem(favoritesKey) || '[]');
+    
+    const isInFavorites = favorites.includes(menuId);
+    
+    if (isInFavorites) {
+        // Remove from favorites
+        favorites = favorites.filter(id => id !== menuId);
+        localStorage.setItem(favoritesKey, JSON.stringify(favorites));
+        showToast('Menu dihapus dari favorit', 'info');
+    } else {
+        // Add to favorites
+        favorites.push(menuId);
+        localStorage.setItem(favoritesKey, JSON.stringify(favorites));
+        showToast('Menu ditambahkan ke favorit', 'success');
+    }
+    
+    // Update the favorite button appearance
+    updateFavoriteButton(menuId, !isInFavorites);
+}
+
+/**
+ * Update favorite button appearance
+ */
+function updateFavoriteButton(menuId, isInFavorites) {
+    const favoriteBtn = document.querySelector(`button[onclick="toggleFavorite(${menuId})"] i`);
+    if (favoriteBtn) {
+        favoriteBtn.className = isInFavorites ? 'fas fa-heart text-danger' : 'far fa-heart text-muted';
+        
+        const button = favoriteBtn.parentElement;
+        button.title = isInFavorites ? 'Hapus dari favorit' : 'Tambah ke favorit';
+    }
+}
+
 // Export functions for global use
 window.DynamicMenu = {
     loadDynamicMenus,
@@ -370,3 +436,7 @@ window.DynamicMenu = {
     showAllMenus,
     showMenusByCategory
 };
+
+window.toggleFavorite = toggleFavorite;
+window.checkIfInFavorites = checkIfInFavorites;
+window.updateFavoriteButton = updateFavoriteButton;
